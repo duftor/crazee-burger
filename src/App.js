@@ -10,19 +10,20 @@ function App() {
         setName(e.target.value)
     }
 
-    const handleClick = (e) => {
+    const handleSumbit = (e) => {
         e.preventDefault();
-        if (name)
-            alert("Bonjour " + name)
+        alert("Bonjour " + name)
+        setName("")
     }
 
     // Affichage
     return (
         <div>
             <h1>Bienvenue chez nous !</h1>
-            <h2>Connectez vous</h2>
+            <br />
+            <h2>Connectez-vous</h2>
 
-            <form>
+            <form onSubmit={handleSumbit}>
                 <input
                     type="text"
                     name="name"
@@ -32,8 +33,8 @@ function App() {
                     onChange={handleChange}
                     required
                 />
-                
-                <input type="submit" value="Accédez à votre espace" onClick={handleClick} />
+
+                <input type="submit" value="Accédez à votre espace" />
             </form>
         </div>
     );
