@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Salut Victor !
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // State
+    const [name, setName] = useState("");
+
+    // Comportements
+    const handleChange = (e) => {
+        setName(e.target.value)
+    }
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        if (name)
+            alert("Bonjour " + name)
+    }
+
+    // Affichage
+    return (
+        <div>
+            <h1>Bienvenue chez nous !</h1>
+            <h2>Connectez vous</h2>
+
+            <form>
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    value={name}
+                    placeholder="Entre votre prénom..."
+                    onChange={handleChange}
+                    required
+                />
+                
+                <input type="submit" value="Accédez à votre espace" onClick={handleClick} />
+            </form>
+        </div>
+    );
 }
 
 export default App;
