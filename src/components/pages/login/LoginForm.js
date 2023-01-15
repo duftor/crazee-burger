@@ -17,7 +17,7 @@ export default function LoginForm() {
 
     // Affichage
     return (
-        <div><form onSubmit={handleSumbit}>
+        <form onSubmit={handleSumbit}>
             <h1>Bienvenue chez nous !</h1>
             <br />
             <h2>Connectez-vous</h2>
@@ -32,6 +32,6 @@ export default function LoginForm() {
             />
 
             <input type="submit" value="Accédez à votre espace" />
-        </form></div>
+        </form>
     )
 }

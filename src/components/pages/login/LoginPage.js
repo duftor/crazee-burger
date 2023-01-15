@@ -7,8 +7,6 @@ export default function LoginPage() {
 
     // Affichage
     return (
-        <div>
-            <LoginForm />
-        </div>
+        <LoginForm />
     );
 }
