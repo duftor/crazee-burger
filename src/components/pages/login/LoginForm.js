@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function LoginForm() {
     // State
     const [name, setName] = useState("")
+    const navigate = useNavigate()
 
 
     // Comportements
@@ -13,6 +14,7 @@ export default function LoginForm() {
     }
 
     const handleSumbit = (e) => {
+        navigate("order/" + name)
         e.preventDefault();
     }
 
@@ -33,8 +35,6 @@ export default function LoginForm() {
             />
 
             <input type="submit" value="Accédez à votre espace" />
-            <Link to="/order">Vers OrderPAge
-            </Link>
         </form>
     )
 }
