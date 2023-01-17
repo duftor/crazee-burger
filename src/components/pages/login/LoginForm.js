@@ -26,7 +26,7 @@ export default function LoginForm() {
                 name="name"
                 id="name"
                 value={name}
-                placeholder="Entre votre prénom..."
+                placeholder="Entrez votre prénom..."
                 onChange={handleChange}
                 required
             />
