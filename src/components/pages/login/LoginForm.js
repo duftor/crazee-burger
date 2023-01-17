@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 
+
 export default function LoginForm() {
     // State
-    const [name, setName] = useState("");
+    const [name, setName] = useState("")
+
 
     // Comportements
     const handleChange = (e) => {
@@ -11,8 +13,7 @@ export default function LoginForm() {
 
     const handleSumbit = (e) => {
         e.preventDefault();
-        alert("Bonjour " + name)
-        setName("")
+
     }
 
     // Affichage
