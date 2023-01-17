@@ -1,21 +1,21 @@
+import { Link } from "react-router-dom";
 
 
 export default function OrderPage() {
     // State
 
     // Comportements
-    const handleClick = () => {
-        console.log("Go to /");      
-    }
 
     // Affichage
     return (
         <div>
             <h1>
-                Bonjour 
+                Bonjour
             </h1>
             <br />
-            <button onClick={handleClick}>Déconnexion</button>
+            <Link to="/">
+                <button>Déconnexion</button>
+            </Link>
         </div>
     )
 }
