@@ -1,19 +1,18 @@
+import { Link } from "react-router-dom";
 
 
 export default function ErrorPage() {
-    // State
-   
+    // State  
 
     // Comportements
-    const handleClick = () => {
-        console.log(" Go to /")
-    }
 
     // Affichage
     return (
         <div>
             <h1>ErrorPage</h1>
-            <button onClick={handleClick}>Retourner à la page d'accueil</button>
+            <Link to="/">
+                <button>Retourner vers la page d'accueil</button>
+            </Link>
         </div>
     )
 }
