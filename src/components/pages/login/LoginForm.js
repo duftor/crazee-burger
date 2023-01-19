@@ -14,8 +14,8 @@ export default function LoginForm() {
     }
 
     const handleSumbit = (e) => {
-        navigate("order/" + name)
         e.preventDefault();
+        navigate("order/" + name)
     }
 
     // Affichage
