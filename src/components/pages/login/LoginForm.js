@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 
 export default function LoginForm() {
     // State
-    const [name, setName] = useState("");
+    const [name, setName] = useState("")
+    const navigate = useNavigate()
+
 
     // Comportements
     const handleChange = (e) => {
@@ -11,8 +15,7 @@ export default function LoginForm() {
 
     const handleSumbit = (e) => {
         e.preventDefault();
-        alert("Bonjour " + name)
-        setName("")
+        navigate("order/" + name)
     }
 
     // Affichage
