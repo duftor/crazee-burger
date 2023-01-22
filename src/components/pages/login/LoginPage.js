@@ -1,4 +1,6 @@
-import LoginForm from './LoginForm';
+import styled from "styled-components"
+import Logo from "../../reusable-ui/Logo"
+import LoginForm from "./LoginForm"
 
 export default function LoginPage() {
     // State
@@ -7,6 +9,18 @@ export default function LoginPage() {
 
     // Affichage
     return (
-        <LoginForm />
-    );
+        <LoginPageStyled>
+            <Logo />
+            <LoginForm />
+        </LoginPageStyled>
+    )
 }
+
+const LoginPageStyled = styled.div`
+	background: red;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
