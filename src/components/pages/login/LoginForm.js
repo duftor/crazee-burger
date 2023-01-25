@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
-import { theme } from "../../theme/index"
+import { theme } from "../../../theme/index"
 import { IoChevronForward } from "react-icons/io5"
 import TextInput from "../../reusable-ui/TextInput"
 import { BsPersonCircle } from "react-icons/bs"
