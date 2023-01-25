@@ -5,7 +5,7 @@ import { theme } from "../../theme/index"
 import { IoChevronForward } from "react-icons/io5"
 import TextInput from "../../reusable-ui/TextInput"
 import { BsPersonCircle } from "react-icons/bs"
-import PrimaryButton from "./PrimaryButton"
+import PrimaryButton from "../../reusable-ui/PrimaryButton"
 
 export default function LoginForm() {
 	// State
