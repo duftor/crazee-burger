@@ -12,15 +12,17 @@ export default function OrderPage() {
 	// Affichage
 	return (
 		<OrderPageStyled>
-			<Navbar
-				username={username}
-				link={
-					<Link to="/">
-						<button>Déconnexion</button>
-					</Link>
-				}
-			/>
-			<Main />
+			<div className="container">
+				<Navbar
+					username={username}
+					link={
+						<Link to="/">
+							<button>Déconnexion</button>
+						</Link>
+					}
+				/>
+				<Main />
+			</div>
 		</OrderPageStyled>
 	)
 }
@@ -30,4 +32,15 @@ const OrderPageStyled = styled.div`
 	width: 100%;
 	height: 100vh;
 	position: absolute;
+
+	.container {
+		min-width: 1000px;
+		max-width: 1400px;
+
+		background: #f5f5f7;
+		height: 95vh;
+		min-height: 450px;
+		margin: 2.5vh auto;
+		border-radius: 15px;
+	}
 `

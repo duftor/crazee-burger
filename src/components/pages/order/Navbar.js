@@ -13,6 +13,8 @@ export default function Navbar() {
 
 const NavbarStyled = styled.div`
 	border: 2px solid rgb(34, 177, 76);
+	height: 10%;
+	box-sizing: border-box;
 
 	.left {
 		border: 2px solid rgb(63, 72, 204);
