@@ -5,22 +5,29 @@ import Logo from "../../reusable-ui/Logo"
 export default function Navbar() {
 	return (
 		<NavbarStyled>
-			<div className="left">LEFT</div>
-			<div className="right">RIGHT</div>
+			<div className="left">
+				<Logo />
+			</div>
+			<div className="right">NAME</div>
 		</NavbarStyled>
 	)
 }
 
 const NavbarStyled = styled.div`
-	border: 2px solid rgb(34, 177, 76);
-	height: 10%;
+	height: 98.19px; // 10% mais ne doit pas rétrécir donc on fixe
 	box-sizing: border-box;
+	background: #ffffff;
+	border-radius: 15px 15px 0px 0px;
 
 	.left {
-		border: 2px solid rgb(63, 72, 204);
+		float: left;
+		margin: 0 20px;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 
 	.right {
-		border: 2px solid rgb(63, 72, 204);
+		float: right;
 	}
 `
