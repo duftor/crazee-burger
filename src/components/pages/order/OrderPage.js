@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom"
 import styled from "styled-components"
 import Main from "./Main"
 import Navbar from "./Navbar"
+import { theme } from "../../../theme/index"
 
 export default function OrderPage() {
 	// State
@@ -28,7 +29,7 @@ export default function OrderPage() {
 }
 
 const OrderPageStyled = styled.div`
-	background-color: #ffa01b;
+	background-color: ${theme.colors.primary};
 	width: 100%;
 	height: 100vh;
 	position: absolute;

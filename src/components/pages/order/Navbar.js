@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Logo from "../../reusable-ui/Logo"
 import { BsPersonCircle } from "react-icons/bs"
 import { Link } from "react-router-dom"
+import { theme } from "../../../theme/index"
 
 export default function Navbar({ username }) {
 	const refreshPage = () => {
@@ -36,8 +37,9 @@ export default function Navbar({ username }) {
 const NavbarStyled = styled.div`
 	height: 98.19px; // 10% mais ne doit pas rétrécir donc on fixe
 	box-sizing: border-box;
-	background: #ffffff;
-	border-radius: 15px 15px 0px 0px;
+	background: ${theme.colors.white};
+	border-radius: ${theme.borderRadius.extraRound}
+		${theme.borderRadius.extraRound} 0px 0px;
 
 	.link {
 		text-decoration: none;
@@ -65,8 +67,8 @@ const NavbarStyled = styled.div`
 		margin-right: 70px;
 
 		.icon {
-			font-size: 36px;
-			color: #747b91;
+			font-size: ${theme.fonts.size.P4};
+			color: ${theme.colors.greyBlue};
 			transform: translateY(10%);
 		}
 
@@ -74,22 +76,22 @@ const NavbarStyled = styled.div`
 			font-family: "Open Sans";
 			font-size: 16px;
 			line-height: 22px;
-			color: #747b91;
+			color: ${theme.colors.greyBlue};
 
 			text-align: right;
-			font-weight: 400;
+			font-weight: ${theme.fonts.weights.regular};
 
 			.hey-name {
 				.username-primary {
-					font-weight: 700;
-					color: #ffa01b;
+					font-weight: ${theme.fonts.weights.bold};
+					color: ${theme.colors.primary};
 				}
 			}
 
 			.deconnection {
-				font-size: 10px;
+				font-size: ${theme.fonts.size.XXS};
 				line-height: 14px;
-				color: #747b91;
+				color: #${theme.colors.greyBlue};
 			}
 			.deconnection:hover {
 				text-decoration: underline;
