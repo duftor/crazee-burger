@@ -6,8 +6,7 @@ export default function Main() {
 	return <MainStyled></MainStyled>
 }
 const MainStyled = styled.div`
-	height: 90%;
-	box-sizing: border-box;
+	flex: 1;
 
 	background: ${theme.colors.background_white};
 	box-shadow: inset 0px 8px 20px 8px rgba(0, 0, 0, 0.2);

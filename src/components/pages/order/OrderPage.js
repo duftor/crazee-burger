@@ -31,16 +31,16 @@ export default function OrderPage() {
 
 const OrderPageStyled = styled.div`
 	background-color: ${theme.colors.primary};
-	width: 100%;
 	height: 100vh;
-	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	.container {
-		min-width: 1000px;
-		max-width: 1400px;
-
+		width: 1400px;
 		height: 95vh;
-		min-height: 450px;
-		margin: 2.5vh auto;
+
+		display: flex;
+		flex-direction: column;
 	}
 `

@@ -34,36 +34,32 @@ export default function Navbar({ username }) {
 	)
 }
 
-const NavbarStyled = styled.div`
-	height: 98.19px; // 10% mais ne doit pas rétrécir donc on fixe
+const NavbarStyled = styled.nav`
+	height: 10vh;
+	min-height: 50px;
 	box-sizing: border-box;
 	background: ${theme.colors.white};
 	border-radius: ${theme.borderRadius.extraRound}
 		${theme.borderRadius.extraRound} 0px 0px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
 	.link {
 		text-decoration: none;
 	}
 
 	.left {
-		float: left;
 		margin: 0 20px;
-		position: relative;
-		top: 50%;
-		transform: translateY(-50%);
 		cursor: pointer;
 	}
 
 	.right {
-		float: right;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		gap: 10px;
-
-		position: relative;
-		top: 50%;
-		transform: translateY(-50%);
 		margin-right: 70px;
 
 		.icon {
