@@ -25,7 +25,6 @@ export default function Profile({ username }) {
 }
 
 const ProfileStyled = styled.div`
-	font-family: "Open Sans";
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

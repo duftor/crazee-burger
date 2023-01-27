@@ -3,16 +3,13 @@ import styled from "styled-components"
 import Logo from "../../reusable-ui/Logo"
 import { theme } from "../../../theme/index"
 import NavbarRightSide from "./NavbarRightSide"
+import { refreshPage } from "../../../utils/window"
 
 export default function Navbar({ username }) {
-	const refreshPage = () => {
-		window.location.reload(false)
-	}
-
 	return (
 		<NavbarStyled>
-			<div className="left" onClick={refreshPage}>
-				<Logo />
+			<div className="left">
+				<Logo onClick={refreshPage} />
 			</div>
 			<NavbarRightSide username={username} />
 		</NavbarStyled>
