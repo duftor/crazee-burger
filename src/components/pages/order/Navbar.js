@@ -31,12 +31,14 @@ const NavbarStyled = styled.nav`
 	justify-content: space-between;
 	align-items: center;
 
+	padding-left: 20px;
+	padding-right: 70px;
+
 	.link {
 		text-decoration: none;
 	}
 
 	.left {
-		margin: 0 20px;
 		cursor: pointer;
 	}
 `
