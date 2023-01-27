@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import { theme } from "../../theme/index"
 
-export default function Logo({ scale = 2.5 }) {
+export default function Logo({ className }) {
 	return (
-		<LogoStyled>
+		<LogoStyled className={className}>
 			<h1>CRAZEE</h1>
 			<img src="/images/logo_orange.png" alt="Crazy Burger logo" />
 			<h1>BURGER</h1>
