@@ -5,13 +5,13 @@ import { theme } from "../../../theme/index"
 import NavbarRightSide from "./NavbarRightSide"
 import { refreshPage } from "../../../utils/window"
 
-export default function Navbar({ username }) {
+export default function Navbar() {
 	return (
 		<NavbarStyled>
-			<div className="left">
+			<div className="navbar-left-side">
 				<Logo onClick={refreshPage} />
 			</div>
-			<NavbarRightSide username={username} />
+			<NavbarRightSide />
 		</NavbarStyled>
 	)
 }
@@ -31,11 +31,7 @@ const NavbarStyled = styled.nav`
 	padding-left: 20px;
 	padding-right: 70px;
 
-	.link {
-		text-decoration: none;
-	}
-
-	.left {
+	.navbar-left-side {
 		cursor: pointer;
 	}
 `

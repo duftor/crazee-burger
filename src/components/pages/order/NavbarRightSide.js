@@ -1,12 +1,11 @@
-import { theme } from "../../../theme/index"
 import styled from "styled-components"
 import Profile from "./Profile"
 
-export default function NavbarRightSide({ username }) {
+export default function NavbarRightSide() {
 	return (
 		<NavbarRightSideStyled>
 			{/* <div className="admin-button">Admin Button</div> */}
-			<Profile username={username} />
+			<Profile />
 		</NavbarRightSideStyled>
 	)
 }
