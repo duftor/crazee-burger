@@ -1,29 +1,23 @@
 import React from "react"
 import styled from "styled-components"
 import { theme } from "../../../theme/index"
+import { fakeMenu1, fakeMenu2 } from "../../../data/fakeMenu"
 
 export default function Main() {
 	return (
 		<MainStyled>
 			{/* <div className="cart">CART</div> */}
 			<div className="menu-items">
-				<div className="card">CARD 1</div>
-				<div className="card">
-					<img src="/images/burger1.png" alt="Burger TITRE" />
-					<h1>Burger TITRE</h1>
-					<div className="bottom-info">
-						<div className="price">5,60€</div>
-						<button>Ajouter</button>
+				{fakeMenu2.map((item) => (
+					<div className="card" key={item.id + item.imageSource + item.price}>
+						<img src={item.imageSource} alt={item.title} />
+						<h1>{item.title}</h1>
+						<div className="bottom-info">
+							<div className="price">{item.price}</div>
+							<button>Ajouter</button>
+						</div>
 					</div>
-				</div>
-				<div className="card">CARD 3</div>
-				<div className="card">CARD 4</div>
-				<div className="card">CARD 5</div>
-				<div className="card">CARD 6</div>
-				<div className="card">CARD 7</div>
-				<div className="card">CARD 8</div>
-				<div className="card">CARD 9</div>
-				<div className="card">CARD 10</div>
+				))}
 			</div>
 		</MainStyled>
 	)
@@ -55,6 +49,7 @@ const MainStyled = styled.div`
 
 			img {
 				width: 100%;
+				overflow: hidden;
 			}
 
 			.bottom-info {
