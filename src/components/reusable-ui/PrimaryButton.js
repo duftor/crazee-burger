@@ -31,7 +31,7 @@ const PrimaryButtonStyled = styled.button`
 	&:hover:not(:disabled) {
 		background-color: ${theme.colors.white};
 		color: ${theme.colors.primary};
-		border: 1px solid #${theme.colors.primary};
+		border: 1px solid ${theme.colors.primary};
 		transition: all 200ms ease-out;
 	}
 

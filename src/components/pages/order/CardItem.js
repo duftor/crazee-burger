@@ -74,6 +74,11 @@ const CardItemStyled = styled.div`
 				line-height: 12px;
 
 				cursor: pointer;
+				&:active:not(:disabled) {
+					background-color: #ffa01b;
+					color: white;
+					transition: all 200ms ease-out;
+				}
 			}
 		}
 	}
