@@ -16,7 +16,7 @@ export default function Navbar() {
 
 const NavbarStyled = styled.nav`
 	height: 10vh;
-	min-height: 50px;
+	/* min-height: 50px; */ // Bug
 	box-sizing: border-box;
 	background: ${theme.colors.white};
 	border-radius: ${theme.borderRadius.extraRound}
