@@ -7,16 +7,23 @@ export default function Main() {
 		<MainStyled>
 			{/* <div className="cart">CART</div> */}
 			<div className="menu-items">
-				<div>CARD 1</div>
-				<div>CARD 2</div>
-				<div>CARD 3</div>
-				<div>CARD 4</div>
-				<div>CARD 5</div>
-				<div>CARD 6</div>
-				<div>CARD 7</div>
-				<div>CARD 8</div>
-				<div>CARD 9</div>
-				<div>CARD 10</div>
+				<div className="card">CARD 1</div>
+				<div className="card">
+					<img src="/images/burger1.png" alt="Burger TITRE" />
+					<h1>Burger TITRE</h1>
+					<div className="bottom-info">
+						<div className="price">5,60€</div>
+						<button>Ajouter</button>
+					</div>
+				</div>
+				<div className="card">CARD 3</div>
+				<div className="card">CARD 4</div>
+				<div className="card">CARD 5</div>
+				<div className="card">CARD 6</div>
+				<div className="card">CARD 7</div>
+				<div className="card">CARD 8</div>
+				<div className="card">CARD 9</div>
+				<div className="card">CARD 10</div>
 			</div>
 		</MainStyled>
 	)
@@ -35,15 +42,26 @@ const MainStyled = styled.div`
 
 		padding: 35px 92.5px;
 
-		div {
+		.card {
 			border: 1px solid red;
 			height: 330px;
 			width: 240px;
 			margin: 15px auto;
 
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+
+			img {
+				width: 100%;
+			}
+
+			.bottom-info {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+			}
 		}
 	}
 
