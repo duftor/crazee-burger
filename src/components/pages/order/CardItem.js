@@ -46,6 +46,9 @@ const CardItemStyled = styled.div`
 			line-height: 45.4px;
 			text-align: left;
 			margin: 0;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		.bottom-info {

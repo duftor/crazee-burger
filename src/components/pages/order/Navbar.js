@@ -19,6 +19,7 @@ const NavbarStyled = styled.nav`
 	/* min-height: 50px; */ // Bug
 	box-sizing: border-box;
 	background: ${theme.colors.white};
+	border-bottom: 1px solid #e4e5e9;
 	border-radius: ${theme.borderRadius.extraRound}
 		${theme.borderRadius.extraRound} 0px 0px;
 

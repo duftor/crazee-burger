@@ -18,8 +18,8 @@ export default function Main() {
 }
 const MainStyled = styled.div`
 	flex: 1;
-
 	display: flex;
+	overflow-y: scroll;
 
 	.menu-items {
 		width: 100%;
