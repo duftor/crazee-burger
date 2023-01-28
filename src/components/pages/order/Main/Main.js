@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import { theme } from "../../../theme/index"
-import { fakeMenu1, fakeMenu2 } from "../../../data/fakeMenu"
-import CardItem from "./CardItem"
+import { theme } from "../../../../theme/index"
+import { fakeMenu1, fakeMenu2 } from "../../../../data/fakeMenu"
+import CardItem from "../CardItem"
 
 export default function Main() {
 	return (
