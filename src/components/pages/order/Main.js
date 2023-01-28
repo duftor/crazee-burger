@@ -28,7 +28,7 @@ const MainStyled = styled.div`
 		grid-template-columns: repeat(4, 25%);
 		/* grid-template-rows: repeat(2, 50%); */
 
-		padding: 35px 92.5px;
+		padding: 20px 92.5px;
 	}
 
 	background: ${theme.colors.background_white};
