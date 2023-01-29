@@ -3,14 +3,14 @@ import styled from "styled-components"
 import { formatPrice } from "../../../utils/maths"
 import PrimaryButton from "../../reusable-ui/PrimaryButton"
 
-export default function CardItem({ item }) {
+export default function CardItem({ product }) {
 	return (
-		<CardItemStyled key={item.id + item.imageSource + item.price}>
-			<img src={item.imageSource} alt={item.title} />
+		<CardItemStyled key={product.id + product.imageSource + product.price}>
+			<img src={product.imageSource} alt={product.title} />
 			<div className="card-info">
-				<h1>{item.title}</h1>
+				<h1>{product.title}</h1>
 				<div className="bottom-info">
-					<div className="price">{formatPrice(item.price)}</div>
+					<div className="price">{formatPrice(product.price)}</div>
 					<PrimaryButton label={"Ajouter"} className="add-btn" />
 				</div>
 			</div>
@@ -21,7 +21,7 @@ export default function CardItem({ item }) {
 const CardItemStyled = styled.div`
 	height: 330px;
 	width: 240px;
-	margin: 30px auto;
+	/* margin: 30px auto; */
 
 	background: white;
 	box-shadow: -8px 8px 20px rgba(0, 0, 0, 0.2);
