@@ -6,16 +6,16 @@ import { theme } from "../../../theme/index"
 
 export default function Product({ id, title, imageSource, price }) {
 	return (
-		<ProductStyled key={id + imageSource + price}>
+		<ProductStyled>
 			<div className="image">
 				<img src={imageSource} alt={title} />
 			</div>
 			<div className="info-text">
 				<div className="title">{title}</div>
 				<div className="description">
-					<div className="price">{formatPrice(price)}</div>
-					<div className="btn">
-						<PrimaryButton label={"Ajouter"} className="add-btn" />
+					<div className="left-description">{formatPrice(price)}</div>
+					<div className="right-description">
+						<PrimaryButton label={"Ajouter"} />
 					</div>
 				</div>
 			</div>
@@ -32,9 +32,9 @@ const ProductStyled = styled.div`
 	padding: 20px;
 	padding-bottom: 10px;
 
-	background: white;
+	background: ${theme.colors.white};
 	box-shadow: -8px 8px 20px rgba(0, 0, 0, 0.2);
-	border-radius: 15px;
+	border-radius: ${theme.borderRadius.extraRound};
 
 	.image {
 		width: 100%;
@@ -60,9 +60,9 @@ const ProductStyled = styled.div`
 			position: relative;
 			bottom: 10px;
 
-			font-size: 36px;
-			font-weight: 700;
-			color: black;
+			font-size: ${theme.fonts.size.P4};
+			font-weight: ${theme.fonts.weights.bold};
+			color: ${theme.colors.dark};
 			text-align: left;
 
 			font-family: "Amatic SC", cursive;
@@ -75,53 +75,44 @@ const ProductStyled = styled.div`
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 
-			.price {
+			.left-description {
 				display: flex;
 				justify-content: flex-start;
 				align-items: center;
-				font-weight: 400;
-				color: #ffa01b;
+				font-weight: ${theme.fonts.weights.medium};
+				color: ${theme.colors.primary};
 
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
 			}
 
-			.btn {
+			.right-description {
 				display: flex;
 				justify-content: flex-end;
 				align-items: center;
-				font-size: 18px;
+				font-size: ${theme.fonts.size.P1};
 
-				.add-btn {
-					font-size: 12px;
+				button {
+					font-size: ${theme.fonts.size.XS};
 					cursor: pointer;
 					padding: 12px;
+
+					&:active:not(:disabled) {
+						background-color: ${theme.colors.primary};
+						color: white;
+						transition: all 200ms ease-out;
+					}
 				}
 			}
 		}
 	}
 
-	/* .card-info {
-		margin: 15px 20px 10px 20px;
-		h1 {
+	/* 
 			
 			
-		}
-
-		.bottom-info {
-			/* width: 100%; 
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			padding: auto 25px;
-
-			.price {
-				font-weight: 400;
-				font-size: 16px;
-				line-height: 22px;
-				color: #ffa01b;
-			}
+		
+		
 
 			.add-btn {
 				width: 95px;
