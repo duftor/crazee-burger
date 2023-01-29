@@ -20,10 +20,6 @@ const MainStyled = styled.div`
 	grid-template-columns: 1fr;
 	overflow-y: scroll;
 
-	.cart {
-		border: 1px solid red;
-	}
-
 	border-radius: 0px 0px ${theme.borderRadius.extraRound}
 		${theme.borderRadius.extraRound};
 `
