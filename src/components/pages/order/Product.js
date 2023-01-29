@@ -5,47 +5,54 @@ import PrimaryButton from "../../reusable-ui/PrimaryButton"
 
 export default function Product({ id, title, imageSource, price }) {
 	return (
-		<CardItemStyled key={id + imageSource + price}>
+		<ProductStyled key={id + imageSource + price}>
 			<div className="image">
 				<img src={imageSource} alt={title} />
 			</div>
 			<div className="info-text">
+				<div className="title">{title}</div>
 				<div className="description">
-					<div className="title">{title}</div>
 					<div className="price">{formatPrice(price)}</div>
 					<PrimaryButton label={"Ajouter"} className="add-btn" />
 				</div>
 			</div>
-		</CardItemStyled>
+		</ProductStyled>
 	)
 }
 
-const CardItemStyled = styled.div`
-	height: 330px;
-	width: 240px;
-	/* margin: 30px auto; */
+const ProductStyled = styled.div`
+	background: red;
+	height: 300px;
+	width: 200px;
 
-	background: white;
+	display: grid;
+	grid-template-rows: 65% 1fr;
+	padding: 20px;
+	padding-bottom: 10px;
+
+	/* background: white;
 	box-shadow: -8px 8px 20px rgba(0, 0, 0, 0.2);
-	border-radius: 15px;
-
-	display: flex;
-	flex-direction: column;
+	border-radius: 15px; */
 
 	.image {
-		width: 100px;
-		/* height: auto; */
+		border: 1px solid yellow;
+		width: 100%;
+		height: auto;
+		margin-top: 30px;
 		img {
 			width: 100%;
 			height: 100%;
-			/* width: 200px; */
-			/* height: 145px; */
-			/* object-fit: contain; */
+			object-fit: contain;
 			/* padding: 50px 20px 15px 20px; */
 		}
 	}
 
-	.card-info {
+	.info-text {
+		border: 1px solid black;
+		width: 100%;
+	}
+
+	/* .card-info {
 		margin: 15px 20px 10px 20px;
 		h1 {
 			font-family: "Amatic SC", cursive;
@@ -60,7 +67,7 @@ const CardItemStyled = styled.div`
 		}
 
 		.bottom-info {
-			/* width: 100%; */
+			/* width: 100%; 
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -88,6 +95,6 @@ const CardItemStyled = styled.div`
 					transition: all 200ms ease-out;
 				}
 			}
-		}
-	}
+		} 
+	}*/
 `
