@@ -1,16 +1,20 @@
 import { useState } from "react"
 import styled from "styled-components"
 import { fakeMenu1, fakeMenu2 } from "../../../../data/fakeMenu"
-import CardItem from "../CardItem"
 import { theme } from "../../../../theme/index"
-
+import Product from "../Product"
 export default function Menu() {
 	const [menu, setMenu] = useState(fakeMenu2)
 
 	return (
 		<MenuStyled>
 			{menu.map((product) => (
-				<CardItem product={product} />
+				<Product
+					id={product.id}
+					title={product.title}
+					imageSource={product.imageSource}
+					price={product.price}
+				/>
 			))}
 		</MenuStyled>
 	)
