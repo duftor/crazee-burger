@@ -1,29 +1,28 @@
 import React from "react"
 import styled from "styled-components"
-import { formatPrice } from "../../../utils/maths"
-import PrimaryButton from "../../reusable-ui/PrimaryButton"
-import { theme } from "../../../theme/index"
+import PrimaryButton from "./PrimaryButton"
+import { theme } from "../../theme/index"
 
-export default function Product({ id, title, imageSource, price }) {
+export default function Card({ title, imageSource, leftDescription }) {
 	return (
-		<ProductStyled>
+		<CardStyled>
 			<div className="image">
 				<img src={imageSource} alt={title} />
 			</div>
 			<div className="info-text">
 				<div className="title">{title}</div>
 				<div className="description">
-					<div className="left-description">{formatPrice(price)}</div>
+					<div className="left-description">{leftDescription}</div>
 					<div className="right-description">
 						<PrimaryButton label={"Ajouter"} />
 					</div>
 				</div>
 			</div>
-		</ProductStyled>
+		</CardStyled>
 	)
 }
 
-const ProductStyled = styled.div`
+const CardStyled = styled.div`
 	height: 300px;
 	width: 200px;
 
