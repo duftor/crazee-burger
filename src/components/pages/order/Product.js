@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { formatPrice } from "../../../utils/maths"
 import PrimaryButton from "../../reusable-ui/PrimaryButton"
+import { theme } from "../../../theme/index"
 
 export default function Product({ id, title, imageSource, price }) {
 	return (
@@ -13,7 +14,9 @@ export default function Product({ id, title, imageSource, price }) {
 				<div className="title">{title}</div>
 				<div className="description">
 					<div className="price">{formatPrice(price)}</div>
-					<PrimaryButton label={"Ajouter"} className="add-btn" />
+					<div className="btn">
+						<PrimaryButton label={"Ajouter"} className="add-btn" />
+					</div>
 				</div>
 			</div>
 		</ProductStyled>
@@ -21,7 +24,6 @@ export default function Product({ id, title, imageSource, price }) {
 }
 
 const ProductStyled = styled.div`
-	background: red;
 	height: 300px;
 	width: 200px;
 
@@ -30,40 +32,81 @@ const ProductStyled = styled.div`
 	padding: 20px;
 	padding-bottom: 10px;
 
-	/* background: white;
+	background: white;
 	box-shadow: -8px 8px 20px rgba(0, 0, 0, 0.2);
-	border-radius: 15px; */
+	border-radius: 15px;
 
 	.image {
-		border: 1px solid yellow;
 		width: 100%;
 		height: auto;
 		margin-top: 30px;
+		margin-bottom: 20px;
+
 		img {
 			width: 100%;
 			height: 100%;
 			object-fit: contain;
-			/* padding: 50px 20px 15px 20px; */
 		}
 	}
 
 	.info-text {
-		border: 1px solid black;
-		width: 100%;
+		display: grid;
+		grid-template-rows: 30% 70%;
+		padding: 5px;
+
+		.title {
+			margin: auto 0;
+			width: 100%;
+			position: relative;
+			bottom: 10px;
+
+			font-size: 36px;
+			font-weight: 700;
+			color: black;
+			text-align: left;
+
+			font-family: "Amatic SC", cursive;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.description {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+
+			.price {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				font-weight: 400;
+				color: #ffa01b;
+
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.btn {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				font-size: 18px;
+
+				.add-btn {
+					font-size: 12px;
+					cursor: pointer;
+					padding: 12px;
+				}
+			}
+		}
 	}
 
 	/* .card-info {
 		margin: 15px 20px 10px 20px;
 		h1 {
-			font-family: "Amatic SC", cursive;
-			font-weight: 700;
-			font-size: 36px;
-			line-height: 45.4px;
-			text-align: left;
-			margin: 0;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
+			
+			
 		}
 
 		.bottom-info {
