@@ -106,28 +106,4 @@ const CardStyled = styled.div`
 			}
 		}
 	}
-
-	/* 
-			
-			
-		
-		
-
-			.add-btn {
-				width: 95px;
-				height: 38px;
-				font-size: 11px;
-				font-weight: 700;
-				font-family: Arial, Helvetica, sans-serif;
-				line-height: 12px;
-
-				cursor: pointer;
-				&:active:not(:disabled) {
-					background-color: #ffa01b;
-					color: white;
-					transition: all 200ms ease-out;
-				}
-			}
-		} 
-	}*/
 `
