@@ -4,25 +4,32 @@ import { ToastContainer, toast } from "react-toastify"
 
 import "react-toastify/dist/ReactToastify.css"
 import ToggleButton from "../../../reusable-ui/ToggleButton"
+import { useState } from "react"
 
 export default function NavbarRightSide() {
+	const [isAdminMode, setIsAdminMode] = useState(false)
+
 	const onToggle = () => {
-		toast.info("Mode admin activé", {
-			// icon: <FaUserSecret size={30} />,
-			theme: "dark",
-			position: "bottom-right",
-			autoClose: 5000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-		})
+		setIsAdminMode(!isAdminMode)
+
+		if (!isAdminMode) {
+			toast.info("Mode admin activé", {
+				// icon: <FaUserSecret size={30} />,
+				theme: "dark",
+				position: "bottom-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			})
+		}
 	}
 
 	return (
 		<NavbarRightSideStyled>
-			<ToggleButton onToggle={onToggle} />
+			<ToggleButton onToggle={onToggle} isChecked={isAdminMode} />
 
 			{/* <div className="admin-button">Admin Button</div> */}
 			<Profile />
