@@ -29,9 +29,12 @@ export default function NavbarRightSide() {
 
 	return (
 		<NavbarRightSideStyled>
-			<ToggleButton onToggle={onToggle} isChecked={isAdminMode} />
-
-			{/* <div className="admin-button">Admin Button</div> */}
+			<ToggleButton
+				onToggle={onToggle}
+				isChecked={isAdminMode}
+				labelIfChecked="Désactiver le mode admin"
+				labelIfUnchecked="Activer le mode admin"
+			/>
 			<Profile />
 			<ToastContainer />
 		</NavbarRightSideStyled>
