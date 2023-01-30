@@ -32,7 +32,7 @@ const CardStyled = styled.div`
 	padding-bottom: 10px;
 
 	background: ${theme.colors.white};
-	box-shadow: -8px 8px 20px rgba(0, 0, 0, 0.2);
+	box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
 	border-radius: ${theme.borderRadius.extraRound};
 
 	.image {

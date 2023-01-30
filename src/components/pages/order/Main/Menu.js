@@ -29,7 +29,4 @@ const MenuStyled = styled.div`
 
 	padding: 50px 50px 150px;
 	justify-items: center;
-
-	background: ${theme.colors.background_white};
-	box-shadow: inset 0px 8px 20px 8px rgba(0, 0, 0, 0.2);
 `

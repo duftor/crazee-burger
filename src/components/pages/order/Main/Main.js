@@ -13,6 +13,7 @@ export default function Main() {
 	)
 }
 const MainStyled = styled.div`
+	background: ${theme.colors.background_white};
 	flex: 1;
 
 	display: grid;
@@ -20,6 +21,7 @@ const MainStyled = styled.div`
 	grid-template-columns: 1fr;
 	overflow-y: scroll;
 
-	border-radius: 0px 0px ${theme.borderRadius.extraRound}
-		${theme.borderRadius.extraRound};
+	border-bottom-left-radius: ${theme.borderRadius.extraRound};
+	border-bottom-right-radius: ${theme.borderRadius.extraRound};
+	box-shadow: inset 0px 8px 20px 8px rgba(0, 0, 0, 0.2);
 `
