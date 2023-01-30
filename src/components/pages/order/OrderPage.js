@@ -1,22 +1,38 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom"
+import styled from "styled-components"
+import Main from "./Main"
+import Navbar from "./Navbar"
+import { theme } from "../../../theme/index"
 
-
+// Without Vi
 export default function OrderPage() {
-    // State
-    const {username} = useParams()
+	// State
 
-    // Comportements
+	// Comportements
 
-    // Affichage
-    return (
-        <div>
-            <h1>
-                Bonjour {username}
-            </h1>
-            <br />
-            <Link to="/">
-                <button>Déconnexion</button>
-            </Link>
-        </div>
-    )
+	// Affichage
+	return (
+		<OrderPageStyled>
+			<div className="container">
+				<Navbar />
+				<Main />
+			</div>
+		</OrderPageStyled>
+	)
 }
+
+const OrderPageStyled = styled.div`
+	background-color: ${theme.colors.primary};
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.container {
+		width: 1400px;
+		height: 95vh;
+
+		display: flex;
+		flex-direction: column;
+	}
+`
