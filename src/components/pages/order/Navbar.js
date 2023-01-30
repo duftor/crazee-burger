@@ -8,9 +8,7 @@ import { refreshPage } from "../../../utils/window"
 export default function Navbar() {
 	return (
 		<NavbarStyled>
-			<div className="navbar-left-side">
-				<Logo onClick={refreshPage} />
-			</div>
+			<Logo onClick={refreshPage} className="navbar-left-side" />
 			<NavbarRightSide />
 		</NavbarStyled>
 	)

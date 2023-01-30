@@ -14,13 +14,7 @@ export default function OrderPage() {
 	return (
 		<OrderPageStyled>
 			<div className="container">
-				<Navbar
-					link={
-						<Link to="/">
-							<button>Déconnexion</button>
-						</Link>
-					}
-				/>
+				<Navbar />
 				<Main />
 			</div>
 		</OrderPageStyled>
