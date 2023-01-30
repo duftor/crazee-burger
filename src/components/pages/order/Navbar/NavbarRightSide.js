@@ -3,9 +3,10 @@ import Profile from "./Profile"
 import { ToastContainer, toast } from "react-toastify"
 
 import "react-toastify/dist/ReactToastify.css"
+import ToggleButton from "../../../reusable-ui/ToggleButton"
 
 export default function NavbarRightSide() {
-	const notify = () => {
+	const onToggle = () => {
 		toast.info("Mode admin activé", {
 			// icon: <FaUserSecret size={30} />,
 			theme: "dark",
@@ -21,7 +22,7 @@ export default function NavbarRightSide() {
 
 	return (
 		<NavbarRightSideStyled>
-			<button onClick={notify}>Notify !</button>
+			<ToggleButton onToggle={onToggle} />
 
 			{/* <div className="admin-button">Admin Button</div> */}
 			<Profile />
