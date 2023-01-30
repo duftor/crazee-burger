@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import { theme } from "../../theme/index"
 
-export default function PrimaryButton({ label, Icon }) {
+export default function PrimaryButton({ label, Icon, className }) {
 	return (
-		<PrimaryButtonStyled>
+		<PrimaryButtonStyled className={className}>
 			<span>{label}</span>
 			{Icon && Icon}
 		</PrimaryButtonStyled>
@@ -31,7 +31,7 @@ const PrimaryButtonStyled = styled.button`
 	&:hover:not(:disabled) {
 		background-color: ${theme.colors.white};
 		color: ${theme.colors.primary};
-		border: 1px solid #${theme.colors.primary};
+		border: 1px solid ${theme.colors.primary};
 		transition: all 200ms ease-out;
 	}
 

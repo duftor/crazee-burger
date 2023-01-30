@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import Main from "./Main"
-import Navbar from "./Navbar"
+import Main from "./Main/Main"
+import Navbar from "./Navbar/Navbar"
 import { theme } from "../../../theme/index"
 
 // Without Vi

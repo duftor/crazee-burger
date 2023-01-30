@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import Logo from "../../reusable-ui/Logo"
-import { theme } from "../../../theme/index"
+import Logo from "../../../reusable-ui/Logo"
+import { theme } from "../../../../theme/index"
 import NavbarRightSide from "./NavbarRightSide"
-import { refreshPage } from "../../../utils/window"
+import { refreshPage } from "../../../../utils/window"
 
 export default function Navbar() {
 	return (
@@ -19,6 +19,7 @@ const NavbarStyled = styled.nav`
 	min-height: 50px;
 	box-sizing: border-box;
 	background: ${theme.colors.white};
+	border-bottom: 1px solid #e4e5e9;
 	border-radius: ${theme.borderRadius.extraRound}
 		${theme.borderRadius.extraRound} 0px 0px;
 
