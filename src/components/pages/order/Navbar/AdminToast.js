@@ -5,14 +5,10 @@ import { ToastContainer } from "react-toastify"
 import { theme } from "../../../../theme/index"
 
 export default function AdminToast() {
-	return (
-		<AdminToastStyled>
-			<ToastContainer className="toaster" bodyClassName="body-toast" />
-		</AdminToastStyled>
-	)
+	return <ToastContainerStyled className="toaster" bodyClassName="body-toast" />
 }
 
-const AdminToastStyled = styled.div`
+const ToastContainerStyled = styled(ToastContainer)`
 	.toaster {
 		max-width: 300px;
 	}
