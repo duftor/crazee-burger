@@ -16,7 +16,7 @@ export default function Main() {
 					<div className="tab toggle">
 						<FiChevronDown className="icon" />
 					</div>
-					<div className="tab add-product">
+					<div className="tab add-product selected">
 						<AiOutlinePlus className="icon" />
 						<span className="label">Ajouter un produit</span>
 					</div>
@@ -77,10 +77,35 @@ const MainStyled = styled.div`
 				border-color: #e4e5e9;
 				box-shadow: 0px -2px 8px -2px rgba(0, 0, 0, 0.1);
 				border-radius: 5px 5px 0px 0px;
+
+				color: #93a2b1;
+				font-weight: 400;
+				font-size: 16px;
 			}
 
 			.tab.toggle {
-				padding: 12px 22px;
+				padding: 13px 22px;
+			}
+
+			.tab.add-product {
+				padding-right: 23px;
+				.icon {
+					padding: 13px 13px 13px 22px;
+				}
+			}
+
+			.tab.modify-product {
+				padding-right: 23px;
+
+				.icon {
+					padding: 13px 13px 13px 22px;
+				}
+			}
+
+			.selected {
+				background-color: #292729;
+				border-color: #292729;
+				color: white;
 			}
 		}
 
