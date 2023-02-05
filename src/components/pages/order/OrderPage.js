@@ -10,10 +10,13 @@ import { useState } from "react"
 export default function OrderPage() {
 	// State
 	const [isAdminMode, setIsAdminMode] = useState()
+	const [isPanelVisible, setIsPanelVisible] = useState()
 
 	const adminPanelContextValue = {
 		isAdminMode,
 		setIsAdminMode,
+		isPanelVisible,
+		setIsPanelVisible,
 	}
 
 	// Comportements
