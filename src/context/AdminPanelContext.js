@@ -6,4 +6,7 @@ export default createContext({
 
 	isPanelVisible: false,
 	setIsPanelVisible: () => {},
+
+	tabIndex: 0,
+	setTabIndex: () => {},
 })

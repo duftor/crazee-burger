@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
 import { theme } from "../../../../theme/index"
 import Menu from "./Menu"
@@ -8,14 +8,24 @@ import { MdModeEditOutline } from "react-icons/md"
 import AdminPanelContext from "../../../../context/AdminPanelContext"
 
 export default function Main() {
-	const { isAdminMode, isPanelVisible, setIsPanelVisible } =
-		useContext(AdminPanelContext)
+	const {
+		isAdminMode,
+		isPanelVisible,
+		setIsPanelVisible,
+		tabIndex,
+		setTabIndex,
+	} = useContext(AdminPanelContext)
 
 	const toggleAdminPanel = () => {
 		setIsPanelVisible(!isPanelVisible)
-		console.log("isPanelVisible", isPanelVisible)
 	}
 
+	const onTab1Click = () => {
+		setTabIndex(0)
+	}
+	const onTab2Click = (e) => {
+		setTabIndex(1)
+	}
 	return (
 		<MainStyled>
 			{/* <div className="cart">CART</div> */}
@@ -25,24 +35,37 @@ export default function Main() {
 					<div className="tabs">
 						<div className="tab toggle" onClick={toggleAdminPanel}>
 							{isPanelVisible ? (
-								<FiChevronUp className="icon" />
-							) : (
 								<FiChevronDown className="icon" />
+							) : (
+								<FiChevronUp className="icon" />
 							)}
 						</div>
-						<div className="tab add-product selected">
+						<div
+							className={`tab add-product ${tabIndex == 0 ? "selected" : ""}`}
+							onClick={onTab1Click}
+						>
 							<AiOutlinePlus className="icon" />
 							<span className="label">Ajouter un produit</span>
 						</div>
-						<div className="tab modify-product">
+						<div
+							className={`tab modify-product ${
+								tabIndex == 1 ? "selected" : ""
+							}`}
+							onClick={onTab2Click}
+						>
 							<MdModeEditOutline className="icon" />
 							<span className="label">Modifier un produit</span>
 						</div>
 					</div>
-					{!isPanelVisible && (
+					{isPanelVisible && (
 						<div className="content">
-							<div className="content-add-product">AJOUTER UN PRDUIT</div>
-							<div className="content-modify-product">MODIFIER UN PRODUIT</div>
+							{tabIndex == 0 ? (
+								<div className="content-add-product">Ajouter un produit</div>
+							) : (
+								<div className="content-modify-product">
+									Modifier un produit
+								</div>
+							)}
 						</div>
 					)}
 				</div>
