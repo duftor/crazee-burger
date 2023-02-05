@@ -2,13 +2,19 @@ import React, { useContext, useState } from "react"
 import styled from "styled-components"
 import { theme } from "../../../../theme/index"
 import Menu from "./Menu"
-import { FiChevronDown } from "react-icons/fi"
+import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 import { AiOutlinePlus } from "react-icons/ai"
 import { MdModeEditOutline } from "react-icons/md"
 import AdminPanelContext from "../../../../context/AdminPanelContext"
 
 export default function Main() {
-	const { isAdminMode, setIsAdminMode } = useContext(AdminPanelContext)
+	const { isAdminMode, isPanelVisible, setIsPanelVisible } =
+		useContext(AdminPanelContext)
+
+	const toggleAdminPanel = () => {
+		setIsPanelVisible(!isPanelVisible)
+		console.log("isPanelVisible", isPanelVisible)
+	}
 
 	return (
 		<MainStyled>
@@ -17,8 +23,12 @@ export default function Main() {
 			{isAdminMode && (
 				<div className="admin-panel">
 					<div className="tabs">
-						<div className="tab toggle">
-							<FiChevronDown className="icon" />
+						<div className="tab toggle" onClick={toggleAdminPanel}>
+							{isPanelVisible ? (
+								<FiChevronUp className="icon" />
+							) : (
+								<FiChevronDown className="icon" />
+							)}
 						</div>
 						<div className="tab add-product selected">
 							<AiOutlinePlus className="icon" />
@@ -29,10 +39,12 @@ export default function Main() {
 							<span className="label">Modifier un produit</span>
 						</div>
 					</div>
-					<div className="content">
-						<div className="content-add-product">AJOUTER UN PRDUIT</div>
-						<div className="content-modify-product">MODIFIER UN PRODUIT</div>
-					</div>
+					{!isPanelVisible && (
+						<div className="content">
+							<div className="content-add-product">AJOUTER UN PRDUIT</div>
+							<div className="content-modify-product">MODIFIER UN PRODUIT</div>
+						</div>
+					)}
 				</div>
 			)}
 		</MainStyled>
@@ -86,6 +98,12 @@ const MainStyled = styled.div`
 				color: #93a2b1;
 				font-weight: 400;
 				font-size: 16px;
+
+				cursor: pointer;
+			}
+			.tab:hover {
+				border-bottom-color: white;
+				text-decoration: underline;
 			}
 
 			.tab.toggle {
@@ -111,6 +129,9 @@ const MainStyled = styled.div`
 				background-color: #292729;
 				border-color: #292729;
 				color: white;
+			}
+			.selected:hover {
+				border-bottom-color: #292729;
 			}
 		}
 
