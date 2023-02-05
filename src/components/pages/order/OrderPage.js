@@ -9,14 +9,17 @@ import { useState } from "react"
 // Without Vi
 export default function OrderPage() {
 	// State
-	const [isAdminMode, setIsAdminMode] = useState()
-	const [isPanelVisible, setIsPanelVisible] = useState()
+	const [isAdminMode, setIsAdminMode] = useState(false)
+	const [isPanelVisible, setIsPanelVisible] = useState(false)
+	const [tabIndex, setTabIndex] = useState(0)
 
 	const adminPanelContextValue = {
 		isAdminMode,
 		setIsAdminMode,
 		isPanelVisible,
 		setIsPanelVisible,
+		tabIndex,
+		setTabIndex,
 	}
 
 	// Comportements
