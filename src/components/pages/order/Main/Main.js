@@ -1,35 +1,40 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
 import { theme } from "../../../../theme/index"
 import Menu from "./Menu"
 import { FiChevronDown } from "react-icons/fi"
 import { AiOutlinePlus } from "react-icons/ai"
 import { MdModeEditOutline } from "react-icons/md"
+import AdminPanelContext from "../../../../context/AdminPanelContext"
 
 export default function Main() {
+	const { isAdminMode, setIsAdminMode } = useContext(AdminPanelContext)
+
 	return (
 		<MainStyled>
 			{/* <div className="cart">CART</div> */}
 			<Menu />
-			<div className="admin-panel">
-				<div className="tabs">
-					<div className="tab toggle">
-						<FiChevronDown className="icon" />
+			{isAdminMode && (
+				<div className="admin-panel">
+					<div className="tabs">
+						<div className="tab toggle">
+							<FiChevronDown className="icon" />
+						</div>
+						<div className="tab add-product selected">
+							<AiOutlinePlus className="icon" />
+							<span className="label">Ajouter un produit</span>
+						</div>
+						<div className="tab modify-product">
+							<MdModeEditOutline className="icon" />
+							<span className="label">Modifier un produit</span>
+						</div>
 					</div>
-					<div className="tab add-product selected">
-						<AiOutlinePlus className="icon" />
-						<span className="label">Ajouter un produit</span>
-					</div>
-					<div className="tab modify-product">
-						<MdModeEditOutline className="icon" />
-						<span className="label">Modifier un produit</span>
+					<div className="content">
+						<div className="content-add-product">AJOUTER UN PRDUIT</div>
+						<div className="content-modify-product">MODIFIER UN PRODUIT</div>
 					</div>
 				</div>
-				<div className="content">
-					<div className="content-add-product">AJOUTER UN PRDUIT</div>
-					<div className="content-modify-product">MODIFIER UN PRODUIT</div>
-				</div>
-			</div>
+			)}
 		</MainStyled>
 	)
 }
