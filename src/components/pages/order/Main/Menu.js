@@ -1,12 +1,15 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import styled from "styled-components"
 import { fakeMenu2 } from "../../../../data/fakeMenu"
 import { theme } from "../../../../theme/index"
 import Card from "../../../reusable-ui/Card"
 import { formatPrice } from "../../../../utils/maths"
+import AdminPanel from "./AdminPanel"
+import AdminPanelContext from "../../../../context/AdminPanelContext"
 
 export default function Menu() {
 	const [menu, setMenu] = useState(fakeMenu2)
+	const { isAdminMode } = useContext(AdminPanelContext)
 
 	return (
 		<MenuStyled>
@@ -18,6 +21,7 @@ export default function Menu() {
 					leftDescription={formatPrice(price)}
 				/>
 			))}
+			{isAdminMode && <AdminPanel />}
 		</MenuStyled>
 	)
 }
@@ -29,4 +33,5 @@ const MenuStyled = styled.div`
 
 	padding: 50px 50px 150px;
 	justify-items: center;
+	overflow-y: auto;
 `

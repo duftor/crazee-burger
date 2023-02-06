@@ -10,7 +10,7 @@ import { useState } from "react"
 export default function OrderPage() {
 	// State
 	const [isAdminMode, setIsAdminMode] = useState(false)
-	const [isPanelVisible, setIsPanelVisible] = useState(false)
+	const [isPanelVisible, setIsPanelVisible] = useState(true)
 	const [tabIndex, setTabIndex] = useState(0)
 
 	const adminPanelContextValue = {
@@ -45,7 +45,8 @@ const OrderPageStyled = styled.div`
 	align-items: center;
 
 	.container {
-		width: 1400px;
+		width: 100%;
+		max-width: 1400px;
 		height: 95vh;
 
 		display: flex;

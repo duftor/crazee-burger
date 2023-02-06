@@ -4,7 +4,7 @@ export default createContext({
 	isAdminMode: false,
 	setIsAdminMode: () => {},
 
-	isPanelVisible: false,
+	isPanelVisible: true,
 	setIsPanelVisible: () => {},
 
 	tabIndex: 0,
