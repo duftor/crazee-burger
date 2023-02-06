@@ -9,7 +9,7 @@ import PrimaryButton from "../../reusable-ui/PrimaryButton"
 
 export default function LoginForm() {
 	// State
-	const [name, setName] = useState("")
+	const [name, setName] = useState("Bob Testeur")
 	const navigate = useNavigate()
 
 	// Comportements
@@ -38,6 +38,7 @@ export default function LoginForm() {
 			/>
 
 			<PrimaryButton
+				className="login-btn"
 				label="Accéder à mon espace"
 				Icon={<IoChevronForward className="icon" />}
 			/>
@@ -76,5 +77,9 @@ const LoginFormStyled = styled.form`
 		align-items: center;
 		font-size: ${theme.fonts.size.P0};
 		margin-left: 10px;
+	}
+
+	.login-btn {
+		cursor: pointer;
 	}
 `

@@ -31,7 +31,7 @@ const ProfileStyled = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	min-width: 100px;
-
+	padding-left: 50px;
 	/* font-size: 16px;
 	line-height: 22px;
 	color: ${theme.colors.greyBlue};
