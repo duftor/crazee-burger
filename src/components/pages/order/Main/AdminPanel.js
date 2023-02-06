@@ -24,12 +24,15 @@ export default function AdminPanel() {
 }
 
 const AdminPanelStyled = styled.div`
-	/* position: absolute;  // Cache la scrollbar
-	width: 1400px;
-	bottom: 2.5%; */
-	box-sizing: border-box;
-	position: sticky;
+	// TODO: Ajouter de l'espace sous les vignettes
+
+	position: absolute; // Cache la scrollbar
 	bottom: 0;
+	width: 100%;
+	/* box-sizing: border-box; */
+	/* position: sticky;
+	bottom: 0; */
+	overflow: hidden;
 
 	.content {
 		height: 250px;
