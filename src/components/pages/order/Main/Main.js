@@ -22,9 +22,11 @@ export default function Main() {
 
 	const onTab1Click = () => {
 		setTabIndex(0)
+		setIsPanelVisible(true)
 	}
 	const onTab2Click = (e) => {
 		setTabIndex(1)
+		setIsPanelVisible(true)
 	}
 	return (
 		<MainStyled>
