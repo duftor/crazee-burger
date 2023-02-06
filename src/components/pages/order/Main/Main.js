@@ -1,16 +1,15 @@
 import React from "react"
 import styled from "styled-components"
 import { theme } from "../../../../theme/index"
+import AdminPanel from "./AdminPanel"
 import Menu from "./Menu"
-
-import Tabs from "./Tabs"
 
 export default function Main() {
 	return (
 		<MainStyled>
 			{/* <div className="cart">CART</div> */}
 			<Menu />
-			<Tabs />
+			<AdminPanel />
 		</MainStyled>
 	)
 }
