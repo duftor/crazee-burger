@@ -87,7 +87,7 @@ const TabsStyled = styled.div`
 			cursor: pointer;
 		}
 		.tab:hover {
-			border-bottom-color: white;
+			border-bottom-color: ${theme.colors.white};
 			text-decoration: underline;
 		}
 
