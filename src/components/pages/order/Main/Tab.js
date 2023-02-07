@@ -1,41 +1,41 @@
-import React from "react";
-import styled from "styled-components";
-import { theme } from "../../../../theme/index";
+import React from "react"
+import styled from "styled-components"
+import { theme } from "../../../../theme/index"
 
 export default function Tab({ icon, label, isSelected, onClick }) {
-    return (
-        <TabStyled onClick={onClick} className={`${isSelected && "selected"}`}>
-            {icon && icon}
-            <span>{label}</span>
-        </TabStyled>
-    );
+	return (
+		<TabStyled onClick={onClick} className={`${isSelected && "selected"}`}>
+			{icon && icon}
+			{label && <span>{label}</span>}
+		</TabStyled>
+	)
 }
 
 const TabStyled = styled.div`
-    border: 1px solid red;
+	border: 1px solid red;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: ${theme.colors.white};
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: ${theme.colors.white};
 
-    margin-right: 1px;
+	margin-right: 1px;
 
-    border-width: 1px 1px 2px 1px;
-    border-style: solid;
-    border-color: ${theme.colors.greyLight};
-    box-shadow: 0px -2px 8px -2px rgba(0, 0, 0, 0.1);
-    border-radius: 5px 5px 0px 0px;
+	border-width: 1px 1px 2px 1px;
+	border-style: solid;
+	border-color: ${theme.colors.greyLight};
+	box-shadow: 0px -2px 8px -2px rgba(0, 0, 0, 0.1);
+	border-radius: 5px 5px 0px 0px;
 
-    color: ${theme.colors.greySemiDark};
-    font-weight: 400;
-    font-size: 16px;
+	color: ${theme.colors.greySemiDark};
+	font-weight: 400;
+	font-size: 16px;
 
-    cursor: pointer;
+	cursor: pointer;
 
-    padding: 13px 22px;
+	padding: 13px 22px;
 
-    /* .selected {  // Marche pas..
+	/* .selected {  // Marche pas..
         background-color: ${theme.colors.background_dark};
         border-color: ${theme.colors.background_dark};
         color: white;
@@ -45,8 +45,8 @@ const TabStyled = styled.div`
         border-bottom-color: ${theme.colors.background_dark};
     } */
 
-    :hover {
-        border-bottom-color: ${theme.colors.white};
-        text-decoration: underline;
-    }
-`;
+	:hover {
+		border-bottom-color: ${theme.colors.white};
+		text-decoration: underline;
+	}
+`
