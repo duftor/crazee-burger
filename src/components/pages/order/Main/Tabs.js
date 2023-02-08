@@ -61,7 +61,7 @@ const TabsStyled = styled.div`
 		height: 42px;
 
 		.tab {
-			box-sizing: border-box;
+			/* box-sizing: border-box;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -79,7 +79,7 @@ const TabsStyled = styled.div`
 			font-weight: 400;
 			font-size: 16px;
 
-			cursor: pointer;
+			cursor: pointer; */
 		}
 
 		/* .tab:hover {

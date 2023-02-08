@@ -4,7 +4,7 @@ import { theme } from "../../../../theme/index"
 
 export default function Tab({ icon, label, isSelected, onClick }) {
 	return (
-		<TabStyled onClick={onClick} className={`${isSelected && "selected"}`}>
+		<TabStyled onClick={onClick} className={`${isSelected ? "selected" : ""}`}>
 			{icon && icon}
 			{label && <span>{label}</span>}
 		</TabStyled>
@@ -12,6 +12,7 @@ export default function Tab({ icon, label, isSelected, onClick }) {
 }
 
 const TabStyled = styled.div`
+	z-index: 2;
 	border: 1px solid red;
 
 	display: flex;
@@ -21,10 +22,11 @@ const TabStyled = styled.div`
 
 	margin-right: 1px;
 
+	background: #ffffff;
 	border-width: 1px 1px 2px 1px;
 	border-style: solid;
-	border-color: ${theme.colors.greyLight};
-	box-shadow: 0px -2px 8px -2px rgba(0, 0, 0, 0.1);
+	border-color: #e4e5e9;
+	box-shadow: 0px -6px 8px -2px rgba(0, 0, 0, 0.1);
 	border-radius: 5px 5px 0px 0px;
 
 	color: ${theme.colors.greySemiDark};
