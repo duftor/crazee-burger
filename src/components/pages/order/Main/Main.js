@@ -2,13 +2,17 @@ import React, { useContext } from "react"
 import styled from "styled-components"
 import AdminPanelContext from "../../../../context/AdminPanelContext"
 import { theme } from "../../../../theme/index"
+import AdminPanel from "./AdminPanel"
 import Menu from "./Menu"
 
 export default function Main() {
+	const { isAdminMode } = useContext(AdminPanelContext)
+
 	return (
 		<MainStyled>
 			{/* <div className="cart">CART</div> */}
 			<Menu />
+			{isAdminMode && <AdminPanel />}
 		</MainStyled>
 	)
 }

@@ -9,7 +9,6 @@ import AdminPanelContext from "../../../../context/AdminPanelContext"
 
 export default function Menu() {
 	const [menu, setMenu] = useState(fakeMenu2)
-	const { isAdminMode } = useContext(AdminPanelContext)
 
 	return (
 		<MenuStyled>
@@ -21,7 +20,6 @@ export default function Menu() {
 					leftDescription={formatPrice(price)}
 				/>
 			))}
-			{isAdminMode && <AdminPanel />}
 		</MenuStyled>
 	)
 }
