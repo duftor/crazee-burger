@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Main from "./Main/Main"
 import Navbar from "./Navbar/Navbar"
 import { theme } from "../../../theme/index"
-import AdminPanelContext from "../../../context/AdminPanelContext"
+import AdminContext from "../../../context/AdminContext"
 import { useState } from "react"
 
 // Without Vi
@@ -13,7 +13,7 @@ export default function OrderPage() {
 	const [isPanelVisible, setIsPanelVisible] = useState(true)
 	const [tabIndex, setTabIndex] = useState(0)
 
-	const adminPanelContextValue = {
+	const adminContextValue = {
 		isAdminMode,
 		setIsAdminMode,
 		isPanelVisible,
@@ -26,14 +26,14 @@ export default function OrderPage() {
 
 	// Affichage
 	return (
-		<AdminPanelContext.Provider value={adminPanelContextValue}>
+		<AdminContext.Provider value={adminContextValue}>
 			<OrderPageStyled>
 				<div className="container">
 					<Navbar />
 					<Main />
 				</div>
 			</OrderPageStyled>
-		</AdminPanelContext.Provider>
+		</AdminContext.Provider>
 	)
 }
 

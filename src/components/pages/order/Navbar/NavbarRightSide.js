@@ -3,12 +3,12 @@ import Profile from "./Profile"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import ToggleButton from "../../../reusable-ui/ToggleButton"
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import AdminToast from "./AdminToast"
-import AdminPanelContext from "../../../../context/AdminPanelContext"
+import AdminContext from "../../../../context/AdminContext"
 
 export default function NavbarRightSide() {
-	const { isAdminMode, setIsAdminMode } = useContext(AdminPanelContext)
+	const { isAdminMode, setIsAdminMode } = useContext(AdminContext)
 
 	const displayToastNotification = () => {
 		setIsAdminMode(!isAdminMode)
