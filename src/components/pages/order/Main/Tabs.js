@@ -1,62 +1,45 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import { FiChevronDown, FiChevronUp } from "react-icons/fi"
-import { AiOutlinePlus } from "react-icons/ai"
-import { MdModeEditOutline } from "react-icons/md"
 import AdminContext from "../../../../context/AdminContext"
 import { theme } from "../../../../theme/index"
 import Tab from "./Tab"
+import { getTabsConfig } from "./Admin/tabsConfig"
+import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 
 export default function Tabs() {
-	const { isPanelVisible, setIsPanelVisible, tabIndex, setTabIndex } =
-		useContext(AdminContext)
-
-	let addProductTabIndex = 0
-	let modifyProductTabIndex = 1
+	const {
+		isPanelVisible,
+		setIsPanelVisible,
+		currentTabSelected,
+		setCurrentTabSelected,
+	} = useContext(AdminContext)
 
 	const toggleAdminPanel = () => {
 		setIsPanelVisible(!isPanelVisible)
 	}
 
 	const selectTab = (tabSelected) => {
-		setTabIndex(tabSelected)
+		setCurrentTabSelected(tabSelected)
 		setIsPanelVisible(true)
 	}
 
-	const tabsConfig = [
-		{
-			key: "1",
-			label: "",
-			onClick: () => toggleAdminPanel(),
-			Icon: isPanelVisible ? <FiChevronDown /> : <FiChevronUp />,
-			className: !isPanelVisible && "is-active",
-		},
-		{
-			key: "2",
-			label: "Ajouter un produit",
-			onClick: () => selectTab(addProductTabIndex),
-			Icon: <AiOutlinePlus className="icon" />,
-			className: tabIndex == addProductTabIndex && "is-active",
-		},
-		{
-			key: "3",
-			label: "Modifier un produit",
-			onClick: () => selectTab(modifyProductTabIndex),
-			Icon: <MdModeEditOutline className="icon" />,
-			className: tabIndex == modifyProductTabIndex && "is-active",
-		},
-	]
+	const tabs = getTabsConfig(currentTabSelected)
 
 	return (
 		<TabsStyled>
-			{tabsConfig.map((tab) => {
+			{/* <Tab
+				onClick={toggleAdminPanel}
+				isSelected={!isPanelVisible}
+				icon={isPanelVisible ? <FiChevronDown /> : <FiChevronUp />}
+			/> */}
+			{tabs.map((tab) => {
 				return (
 					<Tab
-						key={tab.key}
+						key={tab.index}
 						label={tab.label}
 						Icon={tab.Icon}
-						onClick={tab.onClick}
-						className={tab.className}
+						onClick={() => selectTab(tab.index)}
+						className={currentTabSelected === tab.index ? "is-active" : ""}
 					/>
 				)
 			})}

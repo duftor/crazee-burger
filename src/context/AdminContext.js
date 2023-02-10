@@ -7,6 +7,6 @@ export default createContext({
 	isPanelVisible: true,
 	setIsPanelVisible: () => {},
 
-	tabIndex: 0,
-	setTabIndex: () => {},
+	currentTabSelected: "add",
+	setCurrentTabSelected: () => {},
 })

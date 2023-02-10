@@ -3,20 +3,25 @@ import styled from "styled-components"
 import AdminContext from "../../../../context/AdminContext"
 import Tabs from "./Tabs"
 import { theme } from "../../../../theme/index"
+import { getTabsConfig } from "./Admin/tabsConfig"
 
 export default function AdminPanel() {
-	const { tabIndex, isPanelVisible } = useContext(AdminContext)
+	const { currentTabSelected, isPanelVisible } = useContext(AdminContext)
+
+	const tabs = getTabsConfig(currentTabSelected)
+	const tabSelected = tabs.find((tab) => tab.index === currentTabSelected)
 
 	return (
 		<AdminPanelStyled>
 			<Tabs />
 			{isPanelVisible && (
 				<div className="content">
-					{tabIndex === 0 ? (
+					{/* {currentTabSelected === 0 ? (
 						<div className="content-add-product">Ajouter un produit</div>
 					) : (
 						<div className="content-modify-product">Modifier un produit</div>
-					)}
+					)} */}
+					{currentTabSelected === tabSelected.index && tabSelected.label}
 				</div>
 			)}
 		</AdminPanelStyled>

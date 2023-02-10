@@ -11,15 +11,15 @@ export default function OrderPage() {
 	// State
 	const [isAdminMode, setIsAdminMode] = useState(false)
 	const [isPanelVisible, setIsPanelVisible] = useState(true)
-	const [tabIndex, setTabIndex] = useState(0)
+	const [currentTabSelected, setCurrentTabSelected] = useState("add")
 
 	const adminContextValue = {
 		isAdminMode,
 		setIsAdminMode,
 		isPanelVisible,
 		setIsPanelVisible,
-		tabIndex,
-		setTabIndex,
+		currentTabSelected,
+		setCurrentTabSelected,
 	}
 
 	// Comportements
