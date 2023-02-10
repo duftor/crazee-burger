@@ -2,10 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { theme } from "../../../../theme/index"
 
-export default function Tab({ icon, label, isSelected, onClick }) {
+export default function Tab({ Icon, label, onClick, className }) {
 	return (
-		<TabStyled onClick={onClick} className={isSelected ? "selected" : ""}>
-			{icon && icon}
+		<TabStyled onClick={onClick} className={className}>
+			{Icon && Icon}
 			{label && <span>{label}</span>}
 		</TabStyled>
 	)

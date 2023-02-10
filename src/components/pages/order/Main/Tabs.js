@@ -18,30 +18,48 @@ export default function Tabs() {
 		setIsPanelVisible(!isPanelVisible)
 	}
 
-	const selectTab = (tabIndex) => {
-		setTabIndex(tabIndex)
+	const selectTab = (tabSelected) => {
+		setTabIndex(tabSelected)
 		setIsPanelVisible(true)
 	}
 
+	const tabsConfig = [
+		{
+			key: "1",
+			label: "",
+			onClick: () => toggleAdminPanel(),
+			Icon: isPanelVisible ? <FiChevronDown /> : <FiChevronUp />,
+			className: !isPanelVisible && "is-active",
+		},
+		{
+			key: "2",
+			label: "Ajouter un produit",
+			onClick: () => selectTab(addProductTabIndex),
+			Icon: <AiOutlinePlus className="icon" />,
+			className: tabIndex == addProductTabIndex && "is-active",
+		},
+		{
+			key: "3",
+			label: "Modifier un produit",
+			onClick: () => selectTab(modifyProductTabIndex),
+			Icon: <MdModeEditOutline className="icon" />,
+			className: tabIndex == modifyProductTabIndex && "is-active",
+		},
+	]
+
 	return (
 		<TabsStyled>
-			<Tab
-				onClick={toggleAdminPanel}
-				isSelected={!isPanelVisible}
-				icon={isPanelVisible ? <FiChevronDown /> : <FiChevronUp />}
-			/>
-			<Tab
-				label={"Ajouter un produit"}
-				isSelected={tabIndex === addProductTabIndex}
-				onClick={() => selectTab(addProductTabIndex)}
-				icon={<AiOutlinePlus className="icon" />}
-			/>
-			<Tab
-				label={"Modifier un produit"}
-				isSelected={tabIndex === modifyProductTabIndex}
-				onClick={() => selectTab(modifyProductTabIndex)}
-				icon={<MdModeEditOutline className="icon" />}
-			/>
+			{tabsConfig.map((tab) => {
+				return (
+					<Tab
+						key={tab.key}
+						label={tab.label}
+						Icon={tab.Icon}
+						onClick={tab.onClick}
+						className={tab.className}
+					/>
+				)
+			})}
 		</TabsStyled>
 	)
 }
@@ -57,12 +75,12 @@ const TabsStyled = styled.div`
 		padding-right: 13px;
 	}
 
-	.selected {
+	.is-active {
 		background-color: ${theme.colors.background_dark};
 		border-color: ${theme.colors.background_dark};
 		color: white;
 	}
-	.selected:hover {
+	.is-active:hover {
 		border-bottom-color: ${theme.colors.background_dark};
 	}
 `
