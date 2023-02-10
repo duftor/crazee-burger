@@ -27,11 +27,12 @@ export default function Tabs() {
 
 	return (
 		<TabsStyled>
-			{/* <Tab
+			<Tab
 				onClick={toggleAdminPanel}
 				isSelected={!isPanelVisible}
-				icon={isPanelVisible ? <FiChevronDown /> : <FiChevronUp />}
-			/> */}
+				Icon={isPanelVisible ? <FiChevronDown /> : <FiChevronUp />}
+				className={!isPanelVisible && "is-active"}
+			/>
 			{tabs.map((tab) => {
 				return (
 					<Tab
