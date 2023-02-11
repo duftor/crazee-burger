@@ -5,11 +5,11 @@ export const getTabsConfig = () => [
 	{
 		index: "add",
 		label: "Ajouter un produit",
-		Icon: <AiOutlinePlus className="icon" />,
+		Icon: <AiOutlinePlus />,
 	},
 	{
 		index: "edit",
 		label: "Modifier un produit",
-		Icon: <MdModeEditOutline className="icon" />,
+		Icon: <MdModeEditOutline />,
 	},
 ]

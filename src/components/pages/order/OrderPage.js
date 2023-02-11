@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import styled from "styled-components"
 import Main from "./Main/Main"
 import Navbar from "./Navbar/Navbar"
@@ -10,14 +9,14 @@ import { useState } from "react"
 export default function OrderPage() {
 	// State
 	const [isAdminMode, setIsAdminMode] = useState(false)
-	const [isPanelVisible, setIsPanelVisible] = useState(true)
+	const [isCollapsed, setIsCollapsed] = useState(false)
 	const [currentTabSelected, setCurrentTabSelected] = useState("add")
 
 	const adminContextValue = {
 		isAdminMode,
 		setIsAdminMode,
-		isPanelVisible,
-		setIsPanelVisible,
+		isCollapsed,
+		setIsCollapsed,
 		currentTabSelected,
 		setCurrentTabSelected,
 	}

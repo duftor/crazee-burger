@@ -4,8 +4,8 @@ export default createContext({
 	isAdminMode: false,
 	setIsAdminMode: () => {},
 
-	isPanelVisible: true,
-	setIsPanelVisible: () => {},
+	isCollapsed: false,
+	setIsCollapsed: () => {},
 
 	currentTabSelected: "add",
 	setCurrentTabSelected: () => {},
