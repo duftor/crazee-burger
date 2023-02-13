@@ -13,3 +13,7 @@ export const getTabsConfig = () => [
 		Icon: <MdModeEditOutline />,
 	},
 ]
+
+export const getTabSelected = (tabs, currentTabSelected) => {
+	return tabs.find((tab) => tab.index === currentTabSelected)
+}

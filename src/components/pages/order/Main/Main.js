@@ -9,9 +9,9 @@ export default function Main() {
 	const { isAdminMode } = useContext(AdminContext)
 
 	return (
-		<MainStyled className="main">
+		<MainStyled>
 			{/* <div className="cart">CART</div> */}
-			<div className="menu-and-panel-admin">
+			<div className="menu-and-admin">
 				<Menu />
 				{isAdminMode && <Admin />}
 			</div>
@@ -36,7 +36,7 @@ const MainStyled = styled.div`
 		border: 1px solid black;
 	}
 
-	.menu-and-panel-admin {
+	.menu-and-admin {
 		position: relative;
 		display: grid;
 		overflow-y: hidden;
