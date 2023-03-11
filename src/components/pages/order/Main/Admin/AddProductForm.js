@@ -1,6 +1,10 @@
 import React, { useContext, useState } from "react"
 import styled from "styled-components"
 import { FaHamburger } from "react-icons/fa"
+import { BsFillCameraFill } from "react-icons/bs"
+import { MdOutlineEuro } from "react-icons/md"
+import { FiCheck } from "react-icons/fi"
+
 import MenuContext from "../../../../../context/MenuContext"
 import { formatPrice } from "../../../../../utils/maths"
 
@@ -10,6 +14,7 @@ export default function AddProductForm() {
 	const [name, setName] = useState("")
 	const [imageUrl, setImageUrl] = useState("")
 	const [price, setPrice] = useState("")
+	const [isSuccessDivVisible, setIsSuccessDivVisible] = useState(false)
 
 	const handleNameChange = (e) => {
 		setName(e.target.value)
@@ -24,7 +29,14 @@ export default function AddProductForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
+		setIsSuccessDivVisible(true)
+
+		setTimeout(() => {
+			setIsSuccessDivVisible(false)
+		}, 2000)
+
 		let newMenu = menu
+
 		newMenu.push({
 			id: menu.length + 1,
 			imageSource: imageUrl,
@@ -36,6 +48,7 @@ export default function AddProductForm() {
 		})
 
 		setMenu(newMenu)
+		this.forceUpdate()
 	}
 
 	return (
@@ -58,7 +71,7 @@ export default function AddProductForm() {
 					/>
 				</div>
 				<div className="product-input">
-					<FaHamburger className="icon" color="#747B91" />
+					<BsFillCameraFill className="icon" color="#747B91" />
 					<input
 						type="url"
 						placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
@@ -67,7 +80,7 @@ export default function AddProductForm() {
 					/>
 				</div>
 				<div className="product-input">
-					<FaHamburger className="icon" color="#747B91" />
+					<MdOutlineEuro className="icon" color="#747B91" />
 					<input
 						type="text"
 						placeholder="Prix"
@@ -75,7 +88,15 @@ export default function AddProductForm() {
 						onChange={handlePriceChange}
 					/>
 				</div>
-				<button>Ajouter un nouveau produit au menu</button>
+				<div className="submit-btn">
+					<button>Ajouter un nouveau produit au menu</button>
+					{isSuccessDivVisible && (
+						<span className="success-div">
+							<FiCheck className="icon" />
+							Ajouté avec succès !
+						</span>
+					)}
+				</div>
 			</form>
 		</AddProductFormStyled>
 	)
@@ -181,6 +202,37 @@ const AddProductFormStyled = styled.div`
 			text-align: center;
 
 			color: #ffffff;
+		}
+
+		button:hover {
+			background: #ffffff;
+			border: 1px solid #60bd4f;
+			color: #60bd4f;
+
+			cursor: pointer;
+		}
+
+		.submit-btn {
+			display: flex;
+			.success-div {
+				padding-left: 5px;
+				margin-left: 10px;
+
+				color: #60bd4f;
+				gap: 5px;
+
+				font-family: "Open Sans";
+				font-weight: 400;
+				font-size: 15px;
+				line-height: 20px;
+				display: flex;
+				align-items: center;
+
+				.icon {
+					width: 18px;
+					height: 18px;
+				}
+			}
 		}
 	}
 `
