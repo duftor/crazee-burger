@@ -1,8 +1,11 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
 import { FaHamburger } from "react-icons/fa"
+import MenuContext from "../../../../../context/MenuContext"
 
 export default function AddProductForm() {
+	const { menu } = useContext(MenuContext)
+
 	const [isThereImage, setIsThereImage] = useState(false)
 	const [name, setName] = useState("")
 	const [imageUrl, setImageUrl] = useState("")
@@ -18,6 +21,12 @@ export default function AddProductForm() {
 		setPrice(e.target.value)
 	}
 
+	const handleSubmit = (e) => {
+		e.preventDefault()
+
+		console.log(menu)
+	}
+
 	return (
 		<AddProductFormStyled>
 			<div className="image-div">
@@ -27,7 +36,7 @@ export default function AddProductForm() {
 					<img src="/images/coming-soon.png" alt="" />
 				)}
 			</div>
-			<form action="">
+			<form action="" onSubmit={handleSubmit}>
 				<div className="product-input">
 					<FaHamburger className="icon" color="#747B91" />
 					<input
