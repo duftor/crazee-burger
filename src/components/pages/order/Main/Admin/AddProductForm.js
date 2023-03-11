@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react"
 import styled from "styled-components"
 import { FaHamburger } from "react-icons/fa"
 import MenuContext from "../../../../../context/MenuContext"
+import { formatPrice } from "../../../../../utils/maths"
 
 export default function AddProductForm() {
-	const { menu } = useContext(MenuContext)
+	const { menu, setMenu } = useContext(MenuContext)
 
-	const [isThereImage, setIsThereImage] = useState(false)
 	const [name, setName] = useState("")
 	const [imageUrl, setImageUrl] = useState("")
 	const [price, setPrice] = useState("")
@@ -24,7 +24,18 @@ export default function AddProductForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
-		console.log(menu)
+		let newMenu = menu
+		newMenu.push({
+			id: menu.length + 1,
+			imageSource: imageUrl,
+			title: name,
+			price: isNaN(price) ? "NaN €" : formatPrice(price),
+			quantity: 0,
+			isAvailable: true,
+			isAdvertised: false,
+		})
+
+		setMenu(newMenu)
 	}
 
 	return (

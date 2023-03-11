@@ -7,6 +7,7 @@ import MenuContext from "../../../../context/MenuContext"
 
 export default function Menu() {
 	const { menu } = useContext(MenuContext)
+	const comingSoonImageUrl = "/images/coming-soon.png"
 
 	return (
 		<MenuStyled>
@@ -14,7 +15,7 @@ export default function Menu() {
 				<Card
 					key={id}
 					title={title}
-					imageSource={imageSource}
+					imageSource={imageSource ? imageSource : comingSoonImageUrl}
 					leftDescription={formatPrice(price)}
 				/>
 			))}
