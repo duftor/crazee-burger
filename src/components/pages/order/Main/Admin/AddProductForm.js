@@ -4,31 +4,56 @@ import { FaHamburger } from "react-icons/fa"
 
 export default function AddProductForm() {
 	const [isThereImage, setIsThereImage] = useState(false)
+	const [name, setName] = useState("")
+	const [imageUrl, setImageUrl] = useState("")
+	const [price, setPrice] = useState("")
+
+	const handleNameChange = (e) => {
+		setName(e.target.value)
+	}
+	const handleImageUtrChange = (e) => {
+		setImageUrl(e.target.value)
+	}
+	const handlePriceChange = (e) => {
+		setPrice(e.target.value)
+	}
 
 	return (
 		<AddProductFormStyled>
 			<div className="image-div">
-				{isThereImage ? (
-					<img src="/images/coming-soon.png" alt="" />
-				) : (
+				{imageUrl ? (
 					<div>Aucune image</div>
+				) : (
+					<img src="/images/coming-soon.png" alt="" />
 				)}
 			</div>
 			<form action="">
 				<div className="product-input">
 					<FaHamburger className="icon" color="#747B91" />
-					<input type="text" placeholder="Nom du produit (ex: Super Nurger)" />
+					<input
+						type="text"
+						placeholder="Nom du produit (ex: Super Nurger)"
+						value={name}
+						onChange={handleNameChange}
+					/>
+				</div>
+				<div className="product-input">
+					<FaHamburger className="icon" color="#747B91" />
+					<input
+						type="url"
+						placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
+						value={imageUrl}
+						onChange={handleImageUtrChange}
+					/>
 				</div>
 				<div className="product-input">
 					<FaHamburger className="icon" color="#747B91" />
 					<input
 						type="text"
-						placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
+						placeholder="Prix"
+						value={price}
+						onChange={handlePriceChange}
 					/>
-				</div>
-				<div className="product-input">
-					<FaHamburger className="icon" color="#747B91" />
-					<input type="text" placeholder="Prix" />
 				</div>
 				<button>Ajouter un nouveau produit au menu</button>
 			</form>
