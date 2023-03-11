@@ -6,7 +6,7 @@ import { MdOutlineEuro } from "react-icons/md"
 import { FiCheck } from "react-icons/fi"
 
 import MenuContext from "../../../../../context/MenuContext"
-import { formatPrice } from "../../../../../utils/maths"
+import { convertToNumber } from "../../../../../utils/maths"
 
 export default function AddProductForm() {
 	const { menu, setMenu } = useContext(MenuContext)
@@ -37,28 +37,25 @@ export default function AddProductForm() {
 
 		const newMenu = [...menu]
 
+		const priceFormatted = convertToNumber(price)
+
 		newMenu.push({
 			id: menu.length + 1,
 			imageSource: imageUrl,
 			title: name,
-			price: isNaN(price) ? "NaN €" : formatPrice(price),
+			price: isNaN(priceFormatted) ? "NaN €" : priceFormatted,
 			quantity: 0,
 			isAvailable: true,
 			isAdvertised: false,
 		})
 
 		setMenu(newMenu)
-		this.forceUpdate()
 	}
 
 	return (
 		<AddProductFormStyled>
 			<div className="image-div">
-				{imageUrl ? (
-					<div>Aucune image</div>
-				) : (
-					<img src="/images/coming-soon.png" alt="" />
-				)}
+				{imageUrl ? <img src={imageUrl} alt="" /> : <div>Aucune image</div>}
 			</div>
 			<form action="" onSubmit={handleSubmit}>
 				<div className="product-input">
