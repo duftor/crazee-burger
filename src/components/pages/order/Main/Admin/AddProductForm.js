@@ -39,7 +39,7 @@ export default function AddProductForm() {
 
 		const priceFormatted = convertToNumber(price)
 
-		newMenu.push({
+		newMenu.unshift({
 			id: menu.length + 1,
 			imageSource: imageUrl,
 			title: name,
