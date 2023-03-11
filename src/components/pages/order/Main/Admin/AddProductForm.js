@@ -35,7 +35,7 @@ export default function AddProductForm() {
 			setIsSuccessDivVisible(false)
 		}, 2000)
 
-		let newMenu = menu
+		const newMenu = [...menu]
 
 		newMenu.push({
 			id: menu.length + 1,
