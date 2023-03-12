@@ -4,10 +4,23 @@ import Card from "../../../reusable-ui/Card"
 import { formatPrice } from "../../../../utils/maths"
 import { theme } from "../../../../theme"
 import MenuContext from "../../../../context/MenuContext"
+import AdminContext from "../../../../context/AdminContext"
 
 export default function Menu() {
-	const { menu } = useContext(MenuContext)
+	const { menu, setMenu } = useContext(MenuContext)
+	const { isAdminMode } = useContext(AdminContext)
+
 	const comingSoonImageUrl = "/images/coming-soon.png"
+
+	const handleClick = (id) => {
+		const selectedItem = menu.find((item) => item.id === id)
+
+		const newMenu = [...menu]
+
+		newMenu.splice(newMenu.indexOf(selectedItem), 1)
+
+		setMenu(newMenu)
+	}
 
 	return (
 		<MenuStyled>
@@ -17,6 +30,8 @@ export default function Menu() {
 					title={title}
 					imageSource={imageSource ? imageSource : comingSoonImageUrl}
 					leftDescription={formatPrice(price)}
+					onRemoveButtonClick={() => handleClick(id)}
+					isThereRemoveButton={isAdminMode}
 				/>
 			))}
 		</MenuStyled>

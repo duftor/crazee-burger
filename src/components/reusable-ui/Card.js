@@ -4,12 +4,25 @@ import PrimaryButton from "./PrimaryButton"
 import { theme } from "../../theme/index"
 import { TiDelete } from "react-icons/ti"
 
-export default function Card({ title, imageSource, leftDescription }) {
+export default function Card({
+	title,
+	imageSource,
+	leftDescription,
+	onClick,
+	isThereRemoveButton,
+	onRemoveButtonClick,
+}) {
 	return (
-		<CardStyled>
-			<div className="remove-button">
-				<TiDelete className="icon" color="#ffa01b" />
-			</div>
+		<CardStyled onClick={onClick}>
+			{isThereRemoveButton && (
+				<div className="remove-button">
+					<TiDelete
+						className="icon"
+						color="#ffa01b"
+						onClick={onRemoveButtonClick}
+					/>
+				</div>
+			)}
 			<div className="image">
 				<img src={imageSource} alt={title} />
 			</div>
