@@ -4,6 +4,7 @@ import Navbar from "./Navbar/Navbar"
 import { theme } from "../../../theme/index"
 import AdminContext from "../../../context/AdminContext"
 import { useState } from "react"
+import { fakeMenu } from "../../../data/fakeMenu"
 
 // Without Vi
 export default function OrderPage() {
@@ -11,6 +12,7 @@ export default function OrderPage() {
 	const [isAdminMode, setIsAdminMode] = useState(false)
 	const [isCollapsed, setIsCollapsed] = useState(false)
 	const [currentTabSelected, setCurrentTabSelected] = useState("add")
+	const [menu, setMenu] = useState(fakeMenu.LARGE)
 
 	const adminContextValue = {
 		isAdminMode,
@@ -19,6 +21,8 @@ export default function OrderPage() {
 		setIsCollapsed,
 		currentTabSelected,
 		setCurrentTabSelected,
+		menu,
+		setMenu,
 	}
 
 	// Comportements

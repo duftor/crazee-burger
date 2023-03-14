@@ -10,7 +10,7 @@ export default function AdminPanel() {
 	const tabs = getTabsConfig(currentTabSelected)
 	const tabSelectedInfo = getTabSelected(tabs, currentTabSelected)
 
-	return <AdminPanelStyled>{tabSelectedInfo.label}</AdminPanelStyled>
+	return <AdminPanelStyled>{tabSelectedInfo.content}</AdminPanelStyled>
 }
 
 const AdminPanelStyled = styled.div`
