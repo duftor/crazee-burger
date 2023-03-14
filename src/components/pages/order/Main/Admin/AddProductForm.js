@@ -4,9 +4,9 @@ import { FaHamburger } from "react-icons/fa"
 import { BsFillCameraFill } from "react-icons/bs"
 import { MdOutlineEuro } from "react-icons/md"
 import { FiCheck } from "react-icons/fi"
-
 import MenuContext from "../../../../../context/MenuContext"
 import { convertToNumber } from "../../../../../utils/maths"
+import { theme } from "../../../../../theme/index"
 
 export default function AddProductForm() {
 	const { menu, setMenu } = useContext(MenuContext)
@@ -59,7 +59,7 @@ export default function AddProductForm() {
 			</div>
 			<form action="" onSubmit={handleSubmit}>
 				<div className="product-input">
-					<FaHamburger className="icon" color="#747B91" />
+					<FaHamburger className="icon" color={theme.colors.greyBlue} />
 					<input
 						type="text"
 						placeholder="Nom du produit (ex: Super Nurger)"
@@ -68,7 +68,7 @@ export default function AddProductForm() {
 					/>
 				</div>
 				<div className="product-input">
-					<BsFillCameraFill className="icon" color="#747B91" />
+					<BsFillCameraFill className="icon" color={theme.colors.greyBlue} />
 					<input
 						type="url"
 						placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
@@ -77,7 +77,7 @@ export default function AddProductForm() {
 					/>
 				</div>
 				<div className="product-input">
-					<MdOutlineEuro className="icon" color="#747B91" />
+					<MdOutlineEuro className="icon" color={theme.colors.greyBlue} />
 					<input
 						type="text"
 						placeholder="Prix"
@@ -108,19 +108,20 @@ const AddProductFormStyled = styled.div`
 	display: flex;
 
 	.image-div {
-		border: 1px solid #e4e5e9;
-		width: 215.14px;
-		height: 120.14px;
+		border: 1px solid ${theme.colors.greyLight};
+		width: 20%;
+		min-width: 110px;
+		height: 120px;
 
 		display: flex;
 		align-items: center;
 		justify-content: center;
 
 		div {
-			font-weight: 400;
-			font-size: 16px;
+			font-weight: ${theme.fonts.weights.regular};
+			font-size: ${theme.fonts.size.P0};
 			line-height: 24px;
-			color: #93a2b1;
+			color: ${theme.colors.greySemiDark};
 		}
 
 		img {
@@ -131,13 +132,18 @@ const AddProductFormStyled = styled.div`
 	}
 
 	form {
-		height: 120.14px;
+		height: 120px;
 		width: 100%;
 		padding-left: 20px;
 
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
+
+		font-family: ${theme.fonts.family.secondary};
+		font-weight: ${theme.fonts.weights.regular};
+		font-size: ${theme.fonts.size.P0};
+		line-height: 17px;
 
 		.product-input {
 			display: flex;
@@ -148,63 +154,54 @@ const AddProductFormStyled = styled.div`
 			padding: 8px 16px 8px 24px;
 			gap: 13px;
 
-			background: #f5f5f7;
-			border-radius: 5px;
+			background: ${theme.colors.background_white};
+			border-radius: ${theme.borderRadius.round};
 
 			.icon {
 				width: 15px;
-				height: 13.13px;
+				height: 13px;
 			}
 
 			input {
 				padding: 1px 2px;
-				background-color: #f5f5f7;
+				background-color: ${theme.colors.background_white};
 				border: none;
 				width: 100%;
 
-				color: #17161a;
-				font-family: "Arial";
-				font-style: normal;
-				font-weight: 400;
-				font-size: 15px;
-				line-height: 17px;
+				color: ${theme.colors.dark};
+				font-size: ${theme.fonts.size.P0};
 			}
 
 			input::placeholder {
-				font-family: "Arial";
-				font-style: normal;
-				font-weight: 400;
-				font-size: 15px;
-				line-height: 17px;
-				color: #a7a8ad;
+				color: ${theme.colors.greyMedium};
 			}
 		}
 
 		button {
 			box-sizing: border-box;
 
-			background: #60bd4f;
-			border: 1px solid #60bd4f;
-			border-radius: 5px;
+			background: ${theme.colors.success};
+			border: 1px solid ${theme.colors.success};
+			border-radius: ${theme.borderRadius.round};
 
 			height: 35px;
 			width: fit-content;
 			padding: 10px 29px;
 
-			font-family: "Arial";
-			font-weight: 700;
-			font-size: 12.3333px;
+			font-family: ${theme.fonts.family.secondary};
+			font-weight: ${theme.fonts.weights.bold};
+			font-size: ${theme.fonts.size.XS};
 			line-height: 14px;
 			align-items: center;
 			text-align: center;
 
-			color: #ffffff;
+			color: ${theme.colors.white};
 		}
 
 		button:hover {
-			background: #ffffff;
-			border: 1px solid #60bd4f;
-			color: #60bd4f;
+			background: ${theme.colors.white};
+			border: 1px solid ${theme.colors.success};
+			color: ${theme.colors.success};
 
 			cursor: pointer;
 		}
@@ -215,12 +212,12 @@ const AddProductFormStyled = styled.div`
 				padding-left: 5px;
 				margin-left: 10px;
 
-				color: #60bd4f;
+				color: ${theme.colors.success};
 				gap: 5px;
 
-				font-family: "Open Sans";
-				font-weight: 400;
-				font-size: 15px;
+				font-family: ${theme.fonts.family.tertiary};
+				font-weight: ${theme.fonts.weights.regular};
+				font-size: ${theme.fonts.size.P0};
 				line-height: 20px;
 				display: flex;
 				align-items: center;
