@@ -11,7 +11,7 @@ export default function Menu() {
 	const { menu, setMenu } = useContext(MenuContext)
 	const { isAdminMode } = useContext(AdminContext)
 
-	const comingSoonImageUrl = "/images/coming-soon.png"
+	const defaultImage = "/images/coming-soon.png"
 
 	const handleClick = (id) => {
 		const selectedItem = menu.find((item) => item.id === id)
@@ -30,10 +30,10 @@ export default function Menu() {
 						<Card
 							key={id}
 							title={title}
-							imageSource={imageSource ? imageSource : comingSoonImageUrl}
+							imageSource={imageSource ? imageSource : defaultImage}
 							leftDescription={formatPrice(price)}
 							onRemoveButtonClick={() => handleClick(id)}
-							isThereRemoveButton={isAdminMode}
+							hasDeleteButton={isAdminMode}
 						/>
 				  ))
 				: isAdminMode && <EmptyMenuPage />}
