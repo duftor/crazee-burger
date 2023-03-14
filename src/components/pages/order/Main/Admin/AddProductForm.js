@@ -56,7 +56,7 @@ export default function AddProductForm() {
 	}
 
 	return (
-		<AddProductFormStyled>
+		<AddProductFormStyled imageUrl={imageUrl}>
 			<div className="image-div">
 				{imageUrl ? <img src={imageUrl} alt="" /> : <div>Aucune image</div>}
 			</div>
@@ -111,7 +111,10 @@ const AddProductFormStyled = styled.div`
 	display: flex;
 
 	.image-div {
-		border: 1px solid ${theme.colors.greyLight};
+		box-sizing: border-box;
+		border: ${(props) =>
+			props.imageUrl ? "none" : `1px solid ${theme.colors.greyLight}`};
+
 		width: 20%;
 		min-width: 110px;
 		height: 120px;
