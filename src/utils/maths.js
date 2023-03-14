@@ -20,9 +20,9 @@ export function replaceFrenchCommaWithDot(price) {
 export function convertToNumber(chaine) {
 	if (chaine === "") return 0
 
-	var prixSansEspace = chaine.replace(/\s/g, "") // Supprimer les espaces
-	var virguleIndex = prixSansEspace.indexOf(",")
-	var pointIndex = prixSansEspace.indexOf(".")
+	let prixSansEspace = chaine.replace(/\s/g, "") // Supprimer les espaces
+	let virguleIndex = prixSansEspace.indexOf(",")
+	let pointIndex = prixSansEspace.indexOf(".")
 	if (virguleIndex !== -1 && pointIndex !== -1) {
 		if (pointIndex > virguleIndex) {
 			// Le point est le séparateur décimal
@@ -35,6 +35,6 @@ export function convertToNumber(chaine) {
 	} else {
 		prixSansEspace = prixSansEspace.replace(/[,|.]/g, ".") // Remplacer toutes les virgules ou points par des points
 	}
-	var prixEnNombre = parseFloat(prixSansEspace) // Convertir en nombre
+	let prixEnNombre = parseFloat(prixSansEspace) // Convertir en nombre
 	return prixEnNombre
 }
