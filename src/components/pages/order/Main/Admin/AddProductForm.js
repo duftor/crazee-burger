@@ -50,6 +50,9 @@ export default function AddProductForm() {
 		})
 
 		setMenu(newMenu)
+		setName("")
+		setImageUrl("")
+		setPrice("")
 	}
 
 	return (
