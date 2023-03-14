@@ -9,18 +9,14 @@ export default function Card({
 	imageSource,
 	leftDescription,
 	onClick,
-	isThereRemoveButton,
+	hasDeleteButton,
 	onRemoveButtonClick,
 }) {
 	return (
 		<CardStyled onClick={onClick}>
-			{isThereRemoveButton && (
+			{hasDeleteButton && (
 				<div className="remove-button">
-					<TiDelete
-						className="icon"
-						color="#ffa01b"
-						onClick={onRemoveButtonClick}
-					/>
+					<TiDelete className="icon" onClick={onRemoveButtonClick} />
 				</div>
 			)}
 			<div className="image">
@@ -76,6 +72,7 @@ const CardStyled = styled.div`
 			width: 30px;
 			height: 30px;
 			cursor: pointer;
+			color: ${theme.colors.primary};
 		}
 	}
 
