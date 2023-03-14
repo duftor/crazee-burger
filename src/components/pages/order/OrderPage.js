@@ -14,6 +14,14 @@ export default function OrderPage() {
 	const [currentTabSelected, setCurrentTabSelected] = useState("add")
 	const [menu, setMenu] = useState(fakeMenu.LARGE)
 
+	const handleAdd = (productToAdd) => {
+		const menuCopy = [...menu]
+
+		const menuUpdated = [productToAdd, ...menuCopy]
+
+		setMenu(menuUpdated)
+	}
+
 	const adminContextValue = {
 		isAdminMode,
 		setIsAdminMode,
@@ -22,7 +30,7 @@ export default function OrderPage() {
 		currentTabSelected,
 		setCurrentTabSelected,
 		menu,
-		setMenu,
+		handleAdd,
 	}
 
 	// Comportements

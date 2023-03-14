@@ -9,7 +9,7 @@ import { theme } from "../../../../../theme/index"
 import AdminContext from "../../../../../context/AdminContext"
 
 export default function AddProductForm() {
-	const { menu, setMenu } = useContext(AdminContext)
+	const { menu, handleAdd } = useContext(AdminContext)
 
 	const [name, setName] = useState("")
 	const [imageUrl, setImageUrl] = useState("")
@@ -35,11 +35,9 @@ export default function AddProductForm() {
 			setIsSuccessDivVisible(false)
 		}, 2000)
 
-		const newMenu = [...menu]
-
 		const priceFormatted = convertToNumber(price)
 
-		newMenu.unshift({
+		handleAdd({
 			id: menu.length + 1,
 			imageSource: imageUrl,
 			title: name,
@@ -49,7 +47,6 @@ export default function AddProductForm() {
 			isAdvertised: false,
 		})
 
-		setMenu(newMenu)
 		setName("")
 		setImageUrl("")
 		setPrice("")
