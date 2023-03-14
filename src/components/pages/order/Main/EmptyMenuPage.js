@@ -8,7 +8,7 @@ import { theme } from "../../../../theme/index"
 export default function EmptyMenuPage() {
 	const { setMenu } = useContext(MenuContext)
 
-	const handleSubmit = (e) => {
+	const onClick = (e) => {
 		e.preventDefault()
 		setMenu(fakeMenu.LARGE)
 	}
@@ -18,12 +18,11 @@ export default function EmptyMenuPage() {
 			<h1>Le menu est vide ?</h1>
 			<div>Clicquez ci-dessous pour le réinitialiser</div>
 
-			<form onSubmit={handleSubmit}>
-				<PrimaryButton
-					className={"button"}
-					label={"Générer de nouveaux produits"}
-				/>
-			</form>
+			<PrimaryButton
+				className={"button"}
+				label={"Générer de nouveaux produits"}
+				onClick={onClick}
+			/>
 		</EmptyMenuPageStyled>
 	)
 }
