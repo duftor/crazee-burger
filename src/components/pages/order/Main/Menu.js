@@ -3,13 +3,11 @@ import styled from "styled-components"
 import Card from "../../../reusable-ui/Card"
 import { formatPrice } from "../../../../utils/maths"
 import { theme } from "../../../../theme"
-import MenuContext from "../../../../context/MenuContext"
 import AdminContext from "../../../../context/AdminContext"
 import EmptyMenuPage from "./EmptyMenuPage"
 
 export default function Menu() {
-	const { menu, setMenu } = useContext(MenuContext)
-	const { isAdminMode } = useContext(AdminContext)
+	const { isAdminMode, menu, setMenu } = useContext(AdminContext)
 
 	const defaultImage = "/images/coming-soon.png"
 

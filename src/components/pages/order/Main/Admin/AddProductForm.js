@@ -4,12 +4,12 @@ import { FaHamburger } from "react-icons/fa"
 import { BsFillCameraFill } from "react-icons/bs"
 import { MdOutlineEuro } from "react-icons/md"
 import { FiCheck } from "react-icons/fi"
-import MenuContext from "../../../../../context/MenuContext"
 import { convertToNumber } from "../../../../../utils/maths"
 import { theme } from "../../../../../theme/index"
+import AdminContext from "../../../../../context/AdminContext"
 
 export default function AddProductForm() {
-	const { menu, setMenu } = useContext(MenuContext)
+	const { menu, setMenu } = useContext(AdminContext)
 
 	const [name, setName] = useState("")
 	const [imageUrl, setImageUrl] = useState("")

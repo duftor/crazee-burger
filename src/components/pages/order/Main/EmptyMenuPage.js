@@ -1,12 +1,12 @@
 import React, { useContext } from "react"
 import PrimaryButton from "../../../reusable-ui/PrimaryButton"
 import { fakeMenu } from "../../../../data/fakeMenu"
-import MenuContext from "../../../../context/MenuContext"
 import styled from "styled-components"
 import { theme } from "../../../../theme/index"
+import AdminContext from "../../../../context/AdminContext"
 
 export default function EmptyMenuPage() {
-	const { setMenu } = useContext(MenuContext)
+	const { setMenu } = useContext(AdminContext)
 
 	const onClick = (e) => {
 		e.preventDefault()

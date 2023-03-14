@@ -4,29 +4,18 @@ import AdminContext from "../../../../context/AdminContext"
 import { theme } from "../../../../theme/index"
 import Admin from "./Admin/Admin"
 import Menu from "./Menu"
-import { fakeMenu } from "../../../../data/fakeMenu"
-import MenuContext from "../../../../context/MenuContext"
 
 export default function Main() {
 	const { isAdminMode } = useContext(AdminContext)
 
-	const [menu, setMenu] = useState(fakeMenu.LARGE)
-
-	const menuContext = {
-		menu,
-		setMenu,
-	}
-
 	return (
-		<MenuContext.Provider value={menuContext}>
-			<MainStyled>
-				{/* <div className="cart">CART</div> */}
-				<div className="menu-and-admin">
-					<Menu />
-					{isAdminMode && <Admin />}
-				</div>
-			</MainStyled>
-		</MenuContext.Provider>
+		<MainStyled>
+			{/* <div className="cart">CART</div> */}
+			<div className="menu-and-admin">
+				<Menu />
+				{isAdminMode && <Admin />}
+			</div>
+		</MainStyled>
 	)
 }
 const MainStyled = styled.div`
