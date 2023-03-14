@@ -3,6 +3,7 @@ import PrimaryButton from "../../../reusable-ui/PrimaryButton"
 import { fakeMenu } from "../../../../data/fakeMenu"
 import MenuContext from "../../../../context/MenuContext"
 import styled from "styled-components"
+import { theme } from "../../../../theme/index"
 
 export default function EmptyMenuPage() {
 	const { setMenu } = useContext(MenuContext)
@@ -38,28 +39,25 @@ const EmptyMenuPageStyled = styled.div`
 		padding: 21px;
 		padding-bottom: 31px;
 
-		font-family: "Amatic SC";
-		font-style: normal;
-		font-weight: 400;
-		font-size: 36px;
+		font-family: ${theme.fonts.family.primary};
+		font-weight: ${theme.fonts.weights.regular};
+		font-size: ${theme.fonts.size.P4};
 		line-height: 45px;
 	}
 
 	h1 {
-		font-family: "Amatic SC";
-		font-style: normal;
-		font-weight: 700;
-		font-size: 36px;
+		font-family: ${theme.fonts.family.primary};
+		font-weight: ${theme.fonts.weights.bold};
+		font-size: ${theme.fonts.size.P4};
 		line-height: 45px;
 
 		margin: 0;
 	}
 
 	.button {
-		font-family: "Arial";
-		font-style: normal;
-		font-weight: 700;
-		font-size: 12px;
+		font-family: ${theme.fonts.family.secondary};
+		font-weight: ${theme.fonts.weights.bold};
+		font-size: ${theme.fonts.size.XS};
 		line-height: 12px;
 
 		padding: 19px 25px;
