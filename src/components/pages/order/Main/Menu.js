@@ -7,18 +7,12 @@ import AdminContext from "../../../../context/AdminContext"
 import EmptyMenuPage from "./EmptyMenuPage"
 
 export default function Menu() {
-	const { isAdminMode, menu, setMenu } = useContext(AdminContext)
+	const { isAdminMode, menu, handleDelete } = useContext(AdminContext)
 
 	const defaultImage = "/images/coming-soon.png"
 
 	const handleClick = (id) => {
-		const selectedItem = menu.find((item) => item.id === id)
-
-		const newMenu = [...menu]
-
-		newMenu.splice(newMenu.indexOf(selectedItem), 1)
-
-		setMenu(newMenu)
+		handleDelete(id)
 	}
 
 	return (
