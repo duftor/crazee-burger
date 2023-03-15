@@ -50,9 +50,7 @@ const AdminTabsStyled = styled.div`
 		background-color: ${theme.colors.background_dark};
 		border-color: ${theme.colors.background_dark};
 		color: ${theme.colors.white};
-		border-bottom: 2px;
+		border-width: 1px 1px 2px 1px;
+		border-style: solid;
 	}
-	/* .is-active:hover {
-		border-bottom-color: ${theme.colors.background_dark};
-	} */
 `
