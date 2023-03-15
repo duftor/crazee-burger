@@ -5,6 +5,7 @@ import { theme } from "../../../theme/index"
 import AdminContext from "../../../context/AdminContext"
 import { useState } from "react"
 import { fakeMenu } from "../../../data/fakeMenu"
+import { convertToNumber } from "../../../utils/maths"
 
 // Without Vi
 export default function OrderPage() {
@@ -16,6 +17,8 @@ export default function OrderPage() {
 
 	const handleAdd = (productToAdd) => {
 		const menuCopy = [...menu]
+
+		productToAdd.price = convertToNumber(productToAdd.price)
 
 		const menuUpdated = [productToAdd, ...menuCopy]
 

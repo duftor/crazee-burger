@@ -40,10 +40,6 @@ export default function AddProductForm() {
 			setIsSuccessDivVisible(false)
 		}, 2000)
 
-		// @TODO: Corriger le format pour les nombres anglais
-		// const priceFormatted = convertToNumber(newProduct.price)
-		// console.log(priceFormatted)
-		// handleAdd({ ...newProduct, price: priceFormatted })
 		handleAdd(newProduct)
 		setNewProduct(EMPTY_PRODUCT)
 	}
