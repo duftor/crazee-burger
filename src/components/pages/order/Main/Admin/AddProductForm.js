@@ -8,81 +8,84 @@ import { convertToNumber } from "../../../../../utils/maths"
 import { theme } from "../../../../../theme/index"
 import AdminContext from "../../../../../context/AdminContext"
 
-export default function AddProductForm() {
-	const { menu, handleAdd } = useContext(AdminContext)
+const EMPTY_PRODUCT = {
+	id: 0,
+	imageSource: "",
+	title: "",
+	price: "",
+	quantity: 0,
+	isAvailable: true,
+	isAdvertised: false,
+}
 
-	const [name, setName] = useState("")
-	const [imageUrl, setImageUrl] = useState("")
-	const [price, setPrice] = useState("")
+export default function AddProductForm() {
+	const { handleAdd } = useContext(AdminContext)
+	const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
+
 	const [isSuccessDivVisible, setIsSuccessDivVisible] = useState(false)
 
-	const handleNameChange = (e) => {
-		setName(e.target.value)
-	}
-	const handleImageUtrChange = (e) => {
-		setImageUrl(e.target.value)
-	}
-	const handlePriceChange = (e) => {
-		setPrice(e.target.value)
+	const handleChange = (e) => {
+		// Dynamic property name
+		setNewProduct({
+			...newProduct,
+			[e.target.name]: e.target.value,
+		})
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
 		setIsSuccessDivVisible(true)
-
 		setTimeout(() => {
 			setIsSuccessDivVisible(false)
 		}, 2000)
 
-		const priceFormatted = convertToNumber(price)
-
-		handleAdd({
-			id: menu.length + 1,
-			imageSource: imageUrl,
-			title: name,
-			price: isNaN(priceFormatted) ? "NaN €" : priceFormatted,
-			quantity: 0,
-			isAvailable: true,
-			isAdvertised: false,
-		})
-
-		setName("")
-		setImageUrl("")
-		setPrice("")
+		// @TODO: Corriger le format pour les nombres anglais
+		// const priceFormatted = convertToNumber(newProduct.price)
+		// console.log(priceFormatted)
+		// handleAdd({ ...newProduct, price: priceFormatted })
+		handleAdd(newProduct)
+		setNewProduct(EMPTY_PRODUCT)
 	}
 
 	return (
-		<AddProductFormStyled imageUrl={imageUrl}>
+		<AddProductFormStyled imageUrl={newProduct.imageSource}>
 			<div className="image-div">
-				{imageUrl ? <img src={imageUrl} alt="" /> : <div>Aucune image</div>}
+				{newProduct.imageSource ? (
+					<img src={newProduct.imageSource} alt="" />
+				) : (
+					<div>Aucune image</div>
+				)}
 			</div>
 			<form action="" onSubmit={handleSubmit}>
 				<div className="product-input">
 					<FaHamburger className="icon" color={theme.colors.greyBlue} />
 					<input
 						type="text"
-						placeholder="Nom du produit (ex: Super Nurger)"
-						value={name}
-						onChange={handleNameChange}
+						name="title"
+						placeholder="Nom du produit (ex: Super Burger)"
+						value={newProduct.title}
+						onChange={handleChange}
 					/>
 				</div>
 				<div className="product-input">
 					<BsFillCameraFill className="icon" color={theme.colors.greyBlue} />
 					<input
 						type="url"
+						name="imageSource"
 						placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
-						value={imageUrl}
-						onChange={handleImageUtrChange}
+						value={newProduct.imageSource}
+						onChange={handleChange}
 					/>
 				</div>
 				<div className="product-input">
 					<MdOutlineEuro className="icon" color={theme.colors.greyBlue} />
 					<input
 						type="text"
+						name="price"
 						placeholder="Prix"
-						value={price}
-						onChange={handlePriceChange}
+						value={newProduct.price ? newProduct.price : ""}
+						onChange={handleChange}
 					/>
 				</div>
 				<div className="submit-btn">
