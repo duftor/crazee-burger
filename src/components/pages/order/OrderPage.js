@@ -16,23 +16,24 @@ export default function OrderPage() {
 	const [menu, setMenu] = useState(fakeMenu.LARGE)
 
 	const handleAdd = (productToAdd) => {
+		// 1. copy du state
 		const menuCopy = [...menu]
 
-		productToAdd.price = convertToNumber(productToAdd.price)
+		// 2. manipulation de la copie du state
+		let priceFormated = convertToNumber(productToAdd.price)
+		productToAdd.price = isNaN(priceFormated) ? "NaN" : priceFormated
 
 		const menuUpdated = [productToAdd, ...menuCopy]
 
+		// 3. update du state avec le setter dédié
 		setMenu(menuUpdated)
 	}
 
 	const handleDelete = (productIdToRemove) => {
-		const selectedItem = menu.find((item) => item.id === productIdToRemove)
+		// Filter out != filter in
+		const menuUpdated = menu.find((item) => item.id !== productIdToRemove)
 
-		const menuCopy = [...menu]
-
-		menuCopy.splice(menuCopy.indexOf(selectedItem), 1)
-
-		setMenu(menuCopy)
+		setMenu(menuUpdated)
 	}
 
 	const adminContextValue = {
