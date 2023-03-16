@@ -10,13 +10,13 @@ export default function Card({
 	leftDescription,
 	onClick,
 	hasDeleteButton,
-	onRemoveButtonClick,
+	onDelete,
 }) {
 	return (
 		<CardStyled onClick={onClick}>
 			{hasDeleteButton && (
 				<div className="remove-button">
-					<TiDelete className="icon" onClick={onRemoveButtonClick} />
+					<TiDelete className="icon" onClick={onDelete} />
 				</div>
 			)}
 			<div className="image">

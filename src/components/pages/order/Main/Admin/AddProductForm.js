@@ -8,7 +8,7 @@ import { theme } from "../../../../../theme/index"
 import AdminContext from "../../../../../context/AdminContext"
 
 const EMPTY_PRODUCT = {
-	id: 0,
+	id: " ",
 	imageSource: "",
 	title: "",
 	price: "",
@@ -21,7 +21,7 @@ export default function AddProductForm() {
 	const { handleAdd } = useContext(AdminContext)
 	const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
 
-	const [isSuccessDivVisible, setIsSuccessDivVisible] = useState(false)
+	const [isSubmitted, setIsSubmitted] = useState(false)
 
 	const handleChange = (e) => {
 		// Dynamic property name
@@ -34,12 +34,12 @@ export default function AddProductForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
-		setIsSuccessDivVisible(true)
+		setIsSubmitted(true)
 		setTimeout(() => {
-			setIsSuccessDivVisible(false)
+			setIsSubmitted(false)
 		}, 2000)
 
-		handleAdd(newProduct)
+		handleAdd({ ...newProduct, id: crypto.randomUUID() })
 		setNewProduct(EMPTY_PRODUCT)
 	}
 
@@ -88,7 +88,7 @@ export default function AddProductForm() {
 			</div>
 			<div className="submit-btn">
 				<button>Ajouter un nouveau produit au menu</button>
-				{isSuccessDivVisible && (
+				{isSubmitted && (
 					<span className="success-div">
 						<FiCheck className="icon" />
 						Ajouté avec succès !
