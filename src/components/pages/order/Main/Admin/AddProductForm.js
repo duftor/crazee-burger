@@ -24,10 +24,11 @@ export default function AddProductForm() {
 	const [isSubmitted, setIsSubmitted] = useState(false)
 
 	const handleChange = (e) => {
+		const { name, value } = e.target
 		// Dynamic property name
 		setNewProduct({
 			...newProduct,
-			[e.target.name]: e.target.value,
+			[name]: value,
 		})
 	}
 

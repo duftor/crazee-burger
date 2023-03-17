@@ -15,20 +15,25 @@ export default function Menu() {
 		handleDelete(id)
 	}
 
+	if (menu.length === 0 && isAdminMode)
+		return (
+			<MenuStyled>
+				<EmptyMenuPage />
+			</MenuStyled>
+		)
+
 	return (
 		<MenuStyled>
-			{menu.length !== 0
-				? menu.map(({ id, title, imageSource, price }) => (
-						<Card
-							key={id}
-							title={title}
-							imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
-							leftDescription={formatPrice(price)}
-							onDelete={() => handleClick(id)}
-							hasDeleteButton={isAdminMode}
-						/>
-				  ))
-				: isAdminMode && <EmptyMenuPage />}
+			{menu.map(({ id, title, imageSource, price }) => (
+				<Card
+					key={id}
+					title={title}
+					imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
+					leftDescription={formatPrice(price)}
+					onDelete={() => handleClick(id)}
+					hasDeleteButton={isAdminMode}
+				/>
+			))}
 		</MenuStyled>
 	)
 }
