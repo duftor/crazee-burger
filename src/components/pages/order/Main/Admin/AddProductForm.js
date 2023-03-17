@@ -57,7 +57,7 @@ export default function AddProductForm() {
 					</div>
 				)}
 			</div>
-			<div className="product-input name">
+			<div className="product-input">
 				<FaHamburger className="icon" color={theme.colors.greyBlue} />
 				<input
 					type="text"
@@ -67,7 +67,7 @@ export default function AddProductForm() {
 					onChange={handleChange}
 				/>
 			</div>
-			<div className="product-input url">
+			<div className="product-input">
 				<BsFillCameraFill className="icon" color={theme.colors.greyBlue} />
 				<input
 					type="url"
@@ -77,7 +77,7 @@ export default function AddProductForm() {
 					onChange={handleChange}
 				/>
 			</div>
-			<div className="product-input price">
+			<div className="product-input">
 				<MdOutlineEuro className="icon" color={theme.colors.greyBlue} />
 				<input
 					type="text"
