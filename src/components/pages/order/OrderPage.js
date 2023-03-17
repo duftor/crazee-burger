@@ -15,6 +15,7 @@ export default function OrderPage() {
 	const [currentTabSelected, setCurrentTabSelected] = useState("add")
 	const [menu, setMenu] = useState(fakeMenu.LARGE)
 
+	// Comportements
 	const handleAdd = (productToAdd) => {
 		// 1. copy du state
 		const menuCopy = [...menu]
@@ -31,9 +32,13 @@ export default function OrderPage() {
 
 	const handleDelete = (productIdToRemove) => {
 		// Filter out != filter in
-		const menuUpdated = menu.find((item) => item.id !== productIdToRemove)
+		const menuUpdated = menu.filter((item) => item.id !== productIdToRemove)
 
 		setMenu(menuUpdated)
+	}
+
+	const resetMenu = () => {
+		setMenu(fakeMenu.MEDIUM)
 	}
 
 	const adminContextValue = {
@@ -46,9 +51,8 @@ export default function OrderPage() {
 		menu,
 		handleAdd,
 		handleDelete,
+		resetMenu,
 	}
-
-	// Comportements
 
 	// Affichage
 	return (
