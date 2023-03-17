@@ -92,7 +92,7 @@ const CardStyled = styled.div`
 			color: ${theme.colors.dark};
 			text-align: left;
 
-			font-family: "Amatic SC", cursive;
+			font-family: ${theme.fonts.family.primary}, cursive;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
