@@ -6,11 +6,10 @@ import { theme } from "../../../../theme/index"
 import AdminContext from "../../../../context/AdminContext"
 
 export default function EmptyMenuPage() {
-	const { setMenu } = useContext(AdminContext)
+	const { resetMenu } = useContext(AdminContext)
 
 	const onClick = (e) => {
-		e.preventDefault()
-		setMenu(fakeMenu.LARGE)
+		resetMenu()
 	}
 
 	return (
@@ -28,6 +27,7 @@ export default function EmptyMenuPage() {
 }
 
 const EmptyMenuPageStyled = styled.div`
+	grid-area: 1/2 / 3/4;
 	display: flex;
 	flex-direction: column;
 
