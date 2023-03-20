@@ -8,6 +8,7 @@ import { theme } from "../../../../../../../theme/index"
 import AdminContext from "../../../../../../../context/AdminContext"
 import TextInput from "../../../../../../reusable-ui/TextInput"
 import Button from "../../../../../../reusable-ui/Button"
+import ImagePreview from "./ImagePreview"
 
 const EMPTY_PRODUCT = {
 	id: " ",
@@ -19,7 +20,7 @@ const EMPTY_PRODUCT = {
 	isAdvertised: false,
 }
 
-export default function AddProductForm() {
+export default function AddForm() {
 	const { handleAdd } = useContext(AdminContext)
 	const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
 
@@ -47,18 +48,8 @@ export default function AddProductForm() {
 	}
 
 	return (
-		<AddProductFormStyled onSubmit={handleSubmit}>
-			<div className="image-preview">
-				{newProduct.imageSource ? (
-					<img src={newProduct.imageSource} alt="" />
-				) : (
-					<div
-						className={`no-img-div ${!newProduct.imageSource && "has-border"}`}
-					>
-						Aucune image
-					</div>
-				)}
-			</div>
+		<AddFormStyled onSubmit={handleSubmit}>
+			<ImagePreview imageSource={newProduct.imageSource} />
 			<div className="product-input name">
 				<TextInput
 					name="title"
@@ -100,11 +91,11 @@ export default function AddProductForm() {
 					</span>
 				)}
 			</div>
-		</AddProductFormStyled>
+		</AddFormStyled>
 	)
 }
 
-const AddProductFormStyled = styled.form`
+const AddFormStyled = styled.form`
 	padding-left: 71px;
 	padding-top: 31px;
 
@@ -136,38 +127,6 @@ const AddProductFormStyled = styled.form`
 	}
 
 	.image-preview {
-		grid-area: 1 / 1 / 4 / 2;
-		box-sizing: border-box;
-
-		width: 100%;
-		height: 120px;
-
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding-right: 20px;
-
-		.no-img-div {
-			font-weight: ${theme.fonts.weights.regular};
-			font-size: ${theme.fonts.size.P0};
-			line-height: 24px;
-			color: ${theme.colors.greySemiDark};
-		}
-		.has-border {
-			border: 1px solid ${theme.colors.greyLight};
-			width: 100%;
-			height: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			border-radius: ${theme.borderRadius.round};
-		}
-
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-		}
 	}
 
 	.submit-btn {
