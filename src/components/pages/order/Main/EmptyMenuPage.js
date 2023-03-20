@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import PrimaryButton from "../../../reusable-ui/PrimaryButton"
+import Button from "../../../reusable-ui/Button"
 import { fakeMenu } from "../../../../data/fakeMenu"
 import styled from "styled-components"
 import { theme } from "../../../../theme/index"
@@ -17,7 +17,7 @@ export default function EmptyMenuPage() {
 			<h1>Le menu est vide ?</h1>
 			<div>Clicquez ci-dessous pour le réinitialiser</div>
 
-			<PrimaryButton
+			<Button
 				className={"button"}
 				label={"Générer de nouveaux produits"}
 				onClick={onClick}

@@ -7,6 +7,7 @@ import { FiCheck } from "react-icons/fi"
 import { theme } from "../../../../../theme/index"
 import AdminContext from "../../../../../context/AdminContext"
 import TextInput from "../../../../reusable-ui/TextInput"
+import Button from "../../../../reusable-ui/Button"
 
 const EMPTY_PRODUCT = {
 	id: " ",
@@ -90,7 +91,8 @@ export default function AddProductForm() {
 			</div>
 
 			<div className="submit-btn">
-				<button>Ajouter un nouveau produit au menu</button>
+				{/* <button>Ajouter un nouveau produit au menu</button> */}
+				<Button variant="success" label="Ajouter un nouveau produit au menu" />
 				{isSubmitted && (
 					<span className="success-div">
 						<FiCheck className="icon" />
@@ -166,34 +168,6 @@ const AddProductFormStyled = styled.form`
 			height: 100%;
 			object-fit: contain;
 		}
-	}
-
-	button {
-		box-sizing: border-box;
-
-		background: ${theme.colors.success};
-		border: 1px solid ${theme.colors.success};
-		border-radius: ${theme.borderRadius.round};
-
-		width: 275px;
-
-		padding: 10px 29px;
-
-		font-family: ${theme.fonts.family.secondary};
-		font-weight: ${theme.fonts.weights.bold};
-		font-size: ${theme.fonts.size.XS};
-		line-height: 14px;
-		align-items: center;
-		text-align: center;
-
-		color: ${theme.colors.white};
-	}
-	button:hover {
-		background: ${theme.colors.white};
-		border: 1px solid ${theme.colors.success};
-		color: ${theme.colors.success};
-
-		cursor: pointer;
 	}
 
 	.submit-btn {
