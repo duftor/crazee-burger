@@ -3,12 +3,12 @@ import styled from "styled-components"
 import { FaHamburger } from "react-icons/fa"
 import { BsFillCameraFill } from "react-icons/bs"
 import { MdOutlineEuro } from "react-icons/md"
-import { FiCheck } from "react-icons/fi"
 import { theme } from "../../../../../../../theme/index"
 import AdminContext from "../../../../../../../context/AdminContext"
 import TextInput from "../../../../../../reusable-ui/TextInput"
 import Button from "../../../../../../reusable-ui/Button"
 import ImagePreview from "./ImagePreview"
+import SubmitMessage from "./SubmitMessage"
 
 const EMPTY_PRODUCT = {
 	id: " ",
@@ -81,15 +81,9 @@ export default function AddForm() {
 				/>
 			</div>
 
-			<div className="submit-btn">
-				{/* <button>Ajouter un nouveau produit au menu</button> */}
+			<div className="submit">
 				<Button variant="success" label="Ajouter un nouveau produit au menu" />
-				{isSubmitted && (
-					<span className="success-div">
-						<FiCheck className="icon" />
-						Ajouté avec succès !
-					</span>
-				)}
+				{isSubmitted && <SubmitMessage />}
 			</div>
 		</AddFormStyled>
 	)
@@ -122,33 +116,11 @@ const AddFormStyled = styled.form`
 	.product-input.price {
 		grid-area: 3 / 2 / 4 / -1;
 	}
-	.submit-btn {
+	.submit {
 		grid-area: 4 / 2 / 5 / -1;
 	}
 
-	.image-preview {
-	}
-
-	.submit-btn {
+	.submit {
 		display: flex;
-		.success-div {
-			padding-left: 5px;
-			margin-left: 10px;
-
-			color: ${theme.colors.success};
-			gap: 5px;
-
-			font-family: ${theme.fonts.family.tertiary};
-			font-weight: ${theme.fonts.weights.regular};
-			font-size: ${theme.fonts.size.P0};
-			line-height: 20px;
-			display: flex;
-			align-items: center;
-
-			.icon {
-				width: 18px;
-				height: 18px;
-			}
-		}
 	}
 `
