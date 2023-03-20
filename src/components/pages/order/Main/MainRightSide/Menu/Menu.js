@@ -1,10 +1,10 @@
 import { useContext } from "react"
 import styled from "styled-components"
-import Card from "../../../reusable-ui/Card"
-import { formatPrice } from "../../../../utils/maths"
-import { theme } from "../../../../theme"
-import AdminContext from "../../../../context/AdminContext"
-import EmptyMenuPage from "./EmptyMenuPage"
+import Card from "../../../../../reusable-ui/Card"
+import { formatPrice } from "../../../../../../utils/maths"
+import { theme } from "../../../../../../theme"
+import AdminContext from "../../../../../../context/AdminContext"
+import EmptyMenu from "./EmptyMenu"
 
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png"
 
@@ -18,7 +18,7 @@ export default function Menu() {
 	if (menu.length === 0 && isAdminMode)
 		return (
 			<MenuStyled>
-				<EmptyMenuPage />
+				<EmptyMenu />
 			</MenuStyled>
 		)
 

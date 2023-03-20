@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import styled from "styled-components"
-import AdminContext from "../../../../../context/AdminContext"
-import AdminPanel from "./AdminPanel"
+import AdminContext from "../../../../../../context/AdminContext"
+import AdminPanel from "./AdminPanel/AdminPanel"
 import AdminTabs from "./AdminTabs"
 
 export default function Admin() {

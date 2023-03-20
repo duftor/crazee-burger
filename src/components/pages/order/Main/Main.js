@@ -1,20 +1,14 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
-import AdminContext from "../../../../context/AdminContext"
 import { theme } from "../../../../theme/index"
-import Admin from "./Admin/Admin"
-import Menu from "./Menu"
+
+import MainRightSide from "./MainRightSide/MainRightSide"
 
 export default function Main() {
-	const { isAdminMode } = useContext(AdminContext)
-
 	return (
 		<MainStyled>
 			{/* <div className="cart">CART</div> */}
-			<div className="menu-and-admin">
-				<Menu />
-				{isAdminMode && <Admin />}
-			</div>
+			<MainRightSide />
 		</MainStyled>
 	)
 }
@@ -31,12 +25,5 @@ const MainStyled = styled.div`
 	.basket {
 		background: pink;
 		border: 1px solid black;
-	}
-
-	.menu-and-admin {
-		position: relative;
-		display: flex;
-		overflow-y: hidden;
-		height: calc(85vh);
 	}
 `

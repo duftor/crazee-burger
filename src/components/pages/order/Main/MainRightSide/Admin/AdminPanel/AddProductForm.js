@@ -4,10 +4,10 @@ import { FaHamburger } from "react-icons/fa"
 import { BsFillCameraFill } from "react-icons/bs"
 import { MdOutlineEuro } from "react-icons/md"
 import { FiCheck } from "react-icons/fi"
-import { theme } from "../../../../../theme/index"
-import AdminContext from "../../../../../context/AdminContext"
-import TextInput from "../../../../reusable-ui/TextInput"
-import Button from "../../../../reusable-ui/Button"
+import { theme } from "../../../../../../../theme/index"
+import AdminContext from "../../../../../../../context/AdminContext"
+import TextInput from "../../../../../../reusable-ui/TextInput"
+import Button from "../../../../../../reusable-ui/Button"
 
 const EMPTY_PRODUCT = {
 	id: " ",

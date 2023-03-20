@@ -1,11 +1,10 @@
 import React, { useContext } from "react"
-import Button from "../../../reusable-ui/Button"
-import { fakeMenu } from "../../../../data/fakeMenu"
+import Button from "../../../../../reusable-ui/Button"
 import styled from "styled-components"
-import { theme } from "../../../../theme/index"
-import AdminContext from "../../../../context/AdminContext"
+import { theme } from "../../../../../../theme/index"
+import AdminContext from "../../../../../../context/AdminContext"
 
-export default function EmptyMenuPage() {
+export default function EmptyMenu() {
 	const { resetMenu } = useContext(AdminContext)
 
 	const onClick = (e) => {
@@ -13,7 +12,7 @@ export default function EmptyMenuPage() {
 	}
 
 	return (
-		<EmptyMenuPageStyled className="empty-menu">
+		<EmptyMenuStyled className="empty-menu">
 			<h1>Le menu est vide ?</h1>
 			<div>Clicquez ci-dessous pour le réinitialiser</div>
 
@@ -22,11 +21,11 @@ export default function EmptyMenuPage() {
 				label={"Générer de nouveaux produits"}
 				onClick={onClick}
 			/>
-		</EmptyMenuPageStyled>
+		</EmptyMenuStyled>
 	)
 }
 
-const EmptyMenuPageStyled = styled.div`
+const EmptyMenuStyled = styled.div`
 	grid-area: 1/2 / 3/4;
 	display: flex;
 	flex-direction: column;
