@@ -22,6 +22,22 @@ const TextInputStyled = styled.div`
 	display: flex;
 	align-items: center;
 
+	.icon {
+		font-size: ${theme.fonts.size.SM};
+		margin: 0 13px 0 8px;
+		display: flex; // to center icon vertically
+	}
+
+	input {
+		border: none;
+		font-size: ${theme.fonts.size.SM};
+		width: 100%;
+
+		&::placeholder {
+			color: ${theme.colors.greyMedium};
+		}
+	}
+
 	${({ variant }) => extraStyle[variant]}
 `
 
@@ -30,52 +46,40 @@ const normalStyle = css`
 	padding: 18px 28px;
 	color: ${theme.colors.greySemiDark};
 
-	.icon {
-		font-size: ${theme.fonts.size.SM};
-		margin: 0 13px 0 8px;
-	}
-
 	input {
-		border: none;
-		font-size: ${theme.fonts.size.SM};
 		color: ${theme.colors.dark};
-		width: 100%;
 
 		&::placeholder {
 			background: ${theme.colors.white};
-			color: ${theme.colors.greyMedium};
 		}
 	}
 `
 
 const minimalistStyle = css`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-
-	padding: 8px 16px 8px 24px;
-
-	background: ${theme.colors.background_white};
-	border-radius: ${theme.borderRadius.round};
+	background-color: ${theme.colors.background_white};
+	padding: 8px 16px;
+	color: ${theme.colors.greyBlue};
+	box-sizing: border-box;
+	height: 35px;
+	width: 100%;
 
 	.icon {
-		width: 15px;
-		height: 13px;
-		padding-right: 15px;
+		/* font-size: ${theme.fonts.size.SM}; */
+		/* margin: 0 0 0 8px; */
 	}
 
 	input {
-		padding: 1px 2px;
-		background-color: ${theme.colors.background_white};
-		border: none;
-		width: 100%;
-
+		background: ${theme.colors.background_white};
 		color: ${theme.colors.dark};
-		font-size: ${theme.fonts.size.P0};
-	}
+		/* width: 100%; */
 
-	input::placeholder {
-		color: ${theme.colors.greyMedium};
+		/* &::placeholder {
+			color: ${theme.colors.greyMedium};
+		} */
+
+		&:focus {
+			outline: 0; //// add outline
+		}
 	}
 `
 

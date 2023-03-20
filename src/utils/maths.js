@@ -18,6 +18,9 @@ export function replaceFrenchCommaWithDot(price) {
 }
 
 export function convertToNumber(chaine) {
+	// Ne fonctionne plus sur "2 119,56"
+	chaine = chaine.toString()
+
 	if (chaine === "") return 0
 
 	let prixSansEspace = chaine.replace(/\s/g, "") // Supprimer les espaces

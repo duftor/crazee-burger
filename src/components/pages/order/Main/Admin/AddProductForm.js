@@ -6,12 +6,13 @@ import { MdOutlineEuro } from "react-icons/md"
 import { FiCheck } from "react-icons/fi"
 import { theme } from "../../../../../theme/index"
 import AdminContext from "../../../../../context/AdminContext"
+import TextInput from "../../../../reusable-ui/TextInput"
 
 const EMPTY_PRODUCT = {
 	id: " ",
 	imageSource: "",
 	title: "",
-	price: "",
+	price: 0,
 	quantity: 0,
 	isAvailable: true,
 	isAdvertised: false,
@@ -46,7 +47,7 @@ export default function AddProductForm() {
 
 	return (
 		<AddProductFormStyled onSubmit={handleSubmit}>
-			<div className="image-div">
+			<div className="image-preview">
 				{newProduct.imageSource ? (
 					<img src={newProduct.imageSource} alt="" />
 				) : (
@@ -57,36 +58,37 @@ export default function AddProductForm() {
 					</div>
 				)}
 			</div>
-			<div className="product-input">
-				<FaHamburger className="icon" color={theme.colors.greyBlue} />
-				<input
-					type="text"
+			<div className="product-input name">
+				<TextInput
 					name="title"
-					placeholder="Nom du produit (ex: Super Burger)"
 					value={newProduct.title}
+					placeholder="Nom du produit (ex: Super Burger)"
 					onChange={handleChange}
+					Icon={<FaHamburger />}
+					variant="minimalist"
 				/>
 			</div>
-			<div className="product-input">
-				<BsFillCameraFill className="icon" color={theme.colors.greyBlue} />
-				<input
-					type="url"
+			<div className="product-input url">
+				<TextInput
 					name="imageSource"
-					placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
 					value={newProduct.imageSource}
+					placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
 					onChange={handleChange}
+					Icon={<BsFillCameraFill />}
+					variant="minimalist"
 				/>
 			</div>
-			<div className="product-input">
-				<MdOutlineEuro className="icon" color={theme.colors.greyBlue} />
-				<input
-					type="text"
+			<div className="product-input price">
+				<TextInput
 					name="price"
-					placeholder="Prix"
 					value={newProduct.price ? newProduct.price : ""}
+					placeholder="Prix"
 					onChange={handleChange}
+					Icon={<MdOutlineEuro />}
+					variant="minimalist"
 				/>
 			</div>
+
 			<div className="submit-btn">
 				<button>Ajouter un nouveau produit au menu</button>
 				{isSubmitted && (
@@ -131,7 +133,7 @@ const AddProductFormStyled = styled.form`
 		grid-area: 4 / 2 / 5 / -1;
 	}
 
-	.image-div {
+	.image-preview {
 		grid-area: 1 / 1 / 4 / 2;
 		box-sizing: border-box;
 
@@ -163,37 +165,6 @@ const AddProductFormStyled = styled.form`
 			width: 100%;
 			height: 100%;
 			object-fit: contain;
-		}
-	}
-
-	.product-input {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-
-		padding: 8px 16px 8px 24px;
-
-		background: ${theme.colors.background_white};
-		border-radius: ${theme.borderRadius.round};
-
-		.icon {
-			width: 15px;
-			height: 13px;
-			padding-right: 15px;
-		}
-
-		input {
-			padding: 1px 2px;
-			background-color: ${theme.colors.background_white};
-			border: none;
-			width: 100%;
-
-			color: ${theme.colors.dark};
-			font-size: ${theme.fonts.size.P0};
-		}
-
-		input::placeholder {
-			color: ${theme.colors.greyMedium};
 		}
 	}
 
