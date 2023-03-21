@@ -13,7 +13,7 @@ export default function Tab({ Icon, label, onClick, className }) {
 
 const TabStyled = styled.div`
 	padding: 0 22px;
-	height: 43px;
+	height: 40px;
 
 	display: flex;
 	align-items: center;

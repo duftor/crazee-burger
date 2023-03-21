@@ -1,38 +1,89 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { theme } from "../../theme/index"
 
-export default function TextInput({ value, onChange, Icon, ...extraProps }) {
+export default function TextInput({
+	value,
+	onChange,
+	Icon,
+	variant = "normal",
+	className,
+	...extraProps
+}) {
 	return (
-		<TextInputStyled>
-			{Icon && Icon}
+		<TextInputStyled className={className} variant={variant}>
+			{Icon && <div className="icon">{Icon}</div>}
 			<input type="text" value={value} onChange={onChange} {...extraProps} />
 		</TextInputStyled>
 	)
 }
 
 const TextInputStyled = styled.div`
-	background-color: ${theme.colors.white};
 	border-radius: ${theme.borderRadius.round};
 	display: flex;
 	align-items: center;
-	padding: 18px 24px;
-	margin: 18px 0;
 
 	.icon {
-		color: ${theme.colors.greySemiDark};
-		font-size: ${theme.fonts.size.P0};
-		margin-right: 8px;
+		font-size: ${theme.fonts.size.SM};
+		margin: 0 13px 0 8px;
+		display: flex; // to center icon vertically
 	}
 
 	input {
 		border: none;
-		font-size: ${theme.fonts.size.P0};
-		color: #${theme.colors.dark};
+		font-size: ${theme.fonts.size.SM};
 		width: 100%;
 
 		&::placeholder {
-			background: ${theme.colors.white};
 			color: ${theme.colors.greyMedium};
 		}
 	}
+
+	${({ variant }) => extraStyle[variant]}
 `
+
+const normalStyle = css`
+	background-color: ${theme.colors.white};
+	padding: 18px 28px;
+	color: ${theme.colors.greySemiDark};
+
+	input {
+		color: ${theme.colors.dark};
+
+		&::placeholder {
+			background: ${theme.colors.white};
+		}
+	}
+`
+
+const minimalistStyle = css`
+	background-color: ${theme.colors.background_white};
+	padding: 8px 16px;
+	color: ${theme.colors.greyBlue};
+	box-sizing: border-box;
+	height: 35px;
+	width: 100%;
+
+	.icon {
+		/* font-size: ${theme.fonts.size.SM}; */
+		/* margin: 0 0 0 8px; */
+	}
+
+	input {
+		background: ${theme.colors.background_white};
+		color: ${theme.colors.dark};
+		/* width: 100%; */
+
+		/* &::placeholder {
+			color: ${theme.colors.greyMedium};
+		} */
+
+		&:focus {
+			outline: 0; //// add outline
+		}
+	}
+`
+
+const extraStyle = {
+	normal: normalStyle,
+	minimalist: minimalistStyle,
+}
