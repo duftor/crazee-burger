@@ -1,9 +1,9 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import AdminContext from "../../../../../context/AdminContext"
-import { theme } from "../../../../../theme/index"
-import Tab from "../../../../reusable-ui/Tab"
-import { getTabsConfig } from "./getTabsConfig"
+import AdminContext from "../../../../../../context/AdminContext"
+import { theme } from "../../../../../../theme/index"
+import Tab from "../../../../../reusable-ui/Tab"
+import { tabsConfig } from "./tabsConfig"
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 
 export default function AdminTabs() {
@@ -19,7 +19,7 @@ export default function AdminTabs() {
 		setIsCollapsed(false)
 	}
 
-	const tabs = getTabsConfig(currentTabSelected)
+	const tabs = tabsConfig
 
 	return (
 		<AdminTabsStyled>
@@ -50,9 +50,7 @@ const AdminTabsStyled = styled.div`
 		background-color: ${theme.colors.background_dark};
 		border-color: ${theme.colors.background_dark};
 		color: ${theme.colors.white};
-		border-bottom: 2px;
+		border-width: 1px 1px 2px 1px;
+		border-style: solid;
 	}
-	/* .is-active:hover {
-		border-bottom-color: ${theme.colors.background_dark};
-	} */
 `

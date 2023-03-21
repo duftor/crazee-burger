@@ -1,16 +1,16 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
-import AdminContext from "../../../../../context/AdminContext"
-import { theme } from "../../../../../theme/index"
-import { getTabSelected, getTabsConfig } from "./getTabsConfig"
+import AdminContext from "../../../../../../../context/AdminContext"
+import { theme } from "../../../../../../../theme/index"
+import { getTabSelected, tabsConfig } from "../tabsConfig"
 
 export default function AdminPanel() {
 	const { currentTabSelected } = useContext(AdminContext)
 
-	const tabs = getTabsConfig(currentTabSelected)
+	const tabs = tabsConfig
 	const tabSelectedInfo = getTabSelected(tabs, currentTabSelected)
 
-	return <AdminPanelStyled>{tabSelectedInfo.label}</AdminPanelStyled>
+	return <AdminPanelStyled>{tabSelectedInfo.Content}</AdminPanelStyled>
 }
 
 const AdminPanelStyled = styled.div`

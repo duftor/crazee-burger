@@ -4,6 +4,8 @@ import Navbar from "./Navbar/Navbar"
 import { theme } from "../../../theme/index"
 import AdminContext from "../../../context/AdminContext"
 import { useState } from "react"
+import { fakeMenu } from "../../../data/fakeMenu"
+import { convertToNumber } from "../../../utils/maths"
 
 // Without Vi
 export default function OrderPage() {
@@ -11,6 +13,33 @@ export default function OrderPage() {
 	const [isAdminMode, setIsAdminMode] = useState(false)
 	const [isCollapsed, setIsCollapsed] = useState(false)
 	const [currentTabSelected, setCurrentTabSelected] = useState("add")
+	const [menu, setMenu] = useState(fakeMenu.LARGE)
+
+	// Comportements
+	const handleAdd = (productToAdd) => {
+		// 1. copy du state
+		const menuCopy = [...menu]
+
+		// 2. manipulation de la copie du state
+		let priceFormated = convertToNumber(productToAdd.price)
+		productToAdd.price = isNaN(priceFormated) ? "NaN" : priceFormated
+
+		const menuUpdated = [productToAdd, ...menuCopy]
+
+		// 3. update du state avec le setter dédié
+		setMenu(menuUpdated)
+	}
+
+	const handleDelete = (productIdToRemove) => {
+		// Filter out != filter in
+		const menuUpdated = menu.filter((item) => item.id !== productIdToRemove)
+
+		setMenu(menuUpdated)
+	}
+
+	const resetMenu = () => {
+		setMenu(fakeMenu.MEDIUM)
+	}
 
 	const adminContextValue = {
 		isAdminMode,
@@ -19,9 +48,11 @@ export default function OrderPage() {
 		setIsCollapsed,
 		currentTabSelected,
 		setCurrentTabSelected,
+		menu,
+		handleAdd,
+		handleDelete,
+		resetMenu,
 	}
-
-	// Comportements
 
 	// Affichage
 	return (
@@ -50,5 +81,8 @@ const OrderPageStyled = styled.div`
 
 		display: flex;
 		flex-direction: column;
+
+		border-radius: 15px;
+		margin: auto;
 	}
 `
