@@ -7,13 +7,13 @@ export const tabsConfig = [
 		index: "add",
 		label: "Ajouter un produit",
 		Icon: <AiOutlinePlus />,
-		content: <AddForm />,
+		Content: <AddForm />,
 	},
 	{
 		index: "edit",
 		label: "Modifier un produit",
 		Icon: <MdModeEditOutline />,
-		content: "",
+		Content: "",
 	},
 ]
 

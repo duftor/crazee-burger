@@ -2,11 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { theme } from "../../../../../../../theme/index"
 
-export default function ImagePreview({ imageSource }) {
+export default function ImagePreview({ imageSource, title }) {
 	return (
 		<ImagePreviewStyled>
 			{imageSource ? (
-				<img src={imageSource} alt="" />
+				<img src={imageSource} alt={title} />
 			) : (
 				<div className={`no-img-div ${!imageSource && "has-border"}`}>
 					Aucune image
